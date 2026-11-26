@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="sky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baitul 'Arabiyyah MIMHa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--bg:#eef4fb;--card:#fff;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--soft:#e0f2fe;--p:#0284c7;--p2:#3b82f6;--pd:#075985;--h1:#0369a1;--h2:#2563eb;--h3:#0ea5e9;--gold:#f59e0b;--arab-scale:1;--shadow:0 8px 24px rgba(15,23,42,.08)}
+html[data-theme=emerald]{--p:#059669;--p2:#10b981;--pd:#065f46;--soft:#d1fae5;--h1:#047857;--h2:#059669;--h3:#0d9488}
+html[data-theme=gold]{--p:#d97706;--p2:#f59e0b;--pd:#92400e;--soft:#fef3c7;--h1:#92400e;--h2:#b45309;--h3:#d97706}
+html.dark{--bg:#0b1220;--card:#131c2e;--text:#e5edf8;--muted:#94a3b8;--line:#243049;--soft:#16233a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s}
+button{font-family:inherit;cursor:pointer;border:0}
+input,select,textarea{font-family:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+.hidden{display:none!important}
+#bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 520px at 8% -8%,var(--soft),transparent 70%),radial-gradient(700px 520px at 105% 25%,var(--soft),transparent 70%),radial-gradient(var(--line) 1px,transparent 1px);background-size:auto,auto,26px 26px}
+.ar{font-family:Amiri,serif;direction:rtl;font-size:calc(var(--fs,1.5rem)*var(--arab-scale));line-height:1.6}
+
+/* topbar */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:10px 16px}
+.topbar-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;padding:7px 13px;border-radius:99px;background:var(--soft);border:1px solid var(--line);color:var(--pd)}
+html.dark .pill{color:var(--text)}
+.pill.gold{background:#fef3c7;color:#92400e;border-color:#fde68a}
+html.dark .pill.gold{background:#3a2c0b;color:#fde68a;border-color:#5b4513}
+.btn-set{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;font-weight:700;font-size:12px;padding:8px 16px;border-radius:99px;box-shadow:0 6px 14px rgba(0,0,0,.15);display:inline-flex;gap:7px;align-items:center;transition:transform .2s}
+.btn-set:hover{transform:translateY(-2px)}
+main{flex:1;width:100%;max-width:1200px;margin:0 auto;padding:22px 16px 40px}
+.view{animation:fadeUp .45s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.stack>*+*{margin-top:26px}
+.stack6>*+*{margin-top:18px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:30px;color:#fff;padding:34px 30px;box-shadow:0 22px 50px rgba(2,60,110,.28);background:linear-gradient(120deg,var(--h1),var(--h2),var(--h3),var(--h1));background-size:300% 300%;animation:gradMove 14s ease infinite}
+@keyframes gradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero .geo{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+.hero .glow{position:absolute;border-radius:50%;filter:blur(55px);opacity:.4;animation:floaty 9s ease-in-out infinite;pointer-events:none}
+@keyframes floaty{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-22px)}}
+.fl{position:absolute;font-family:Amiri,serif;font-weight:700;color:rgba(255,255,255,.17);animation:floatLetter 10s ease-in-out infinite;user-select:none;pointer-events:none}
+@keyframes floatLetter{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-22px) rotate(7deg)}}
+.star{position:absolute;color:#fde68a;animation:twinkle 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.25)}}
+.lantern{position:absolute;top:0;transform-origin:top center;animation:sway 4.2s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}
+@keyframes sway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.hero-in{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:18px}
+.sticker{position:relative;width:86px;height:86px;border-radius:26px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:bob 3.4s ease-in-out infinite;box-shadow:0 10px 24px rgba(0,0,0,.2);color:#fff;cursor:pointer}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.sticker svg{width:58px;height:58px}
+.sticker .wave{position:absolute;right:-10px;bottom:-10px;font-size:26px;transform-origin:70% 70%;animation:wave 2s ease-in-out infinite}
+@keyframes wave{0%,60%,100%{transform:rotate(0)}10%,30%,50%{transform:rotate(16deg)}20%,40%{transform:rotate(-8deg)}}
+.welcome-ar{font-family:'Aref Ruqaa',Amiri,serif;direction:rtl;text-align:left;font-size:clamp(1.5rem,4vw,2.3rem);line-height:1.3;background:linear-gradient(90deg,#fde68a,#fff,#fbbf24,#fde68a);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3.5s linear infinite}
+@keyframes shimmer{to{background-position:200% center}}
+.hero h1{margin:2px 0 0;font-size:clamp(1.6rem,4.4vw,2.6rem);font-weight:900;text-shadow:0 3px 10px rgba(0,0,0,.25);line-height:1.15}
+.hero p.tag{margin:6px 0 0;font-size:13px;opacity:.9;font-weight:500}
+.ustaz-card{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px);padding:10px 16px 10px 10px;border-radius:20px;color:#fff;text-align:left;transition:background .2s,transform .2s}
+.ustaz-card:hover{background:rgba(255,255,255,.24);transform:translateY(-2px)}
+.avatar{border-radius:50%;object-fit:cover;border:3px solid #fcd34d;background:linear-gradient(135deg,#fbbf24,#f97316);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.badge{display:inline-block;background:#fbbf24;color:#451a03;font-size:10px;font-weight:800;padding:2px 9px;border-radius:99px;text-transform:uppercase;letter-spacing:.04em}
+
+/* mahfuzhat */
+.mahf{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-radius:22px;padding:20px 24px;color:#fff;background:linear-gradient(120deg,#4f46e5,#3b82f6);box-shadow:0 12px 26px rgba(79,70,229,.25);position:relative;overflow:hidden}
+.mahf::after{content:"❝";position:absolute;right:130px;top:-22px;font-size:120px;opacity:.1}
+.mahf-txt{transition:opacity .35s,transform .35s}
+.mahf-txt.out{opacity:0;transform:translateY(6px)}
+.btn-glass{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:12px;padding:9px 16px;border-radius:14px;transition:background .2s;display:inline-flex;gap:7px;align-items:center}
+.btn-glass:hover{background:rgba(255,255,255,.32)}
+
+/* section titles & cards */
+.sec-t{font-size:18px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:9px}
+.sec-t i{color:var(--p)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+.fcard{cursor:pointer;position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.fcard:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(0,0,0,.12)}
+.fcard .ic{width:52px;height:52px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:12px}
+.fcard h3{margin:0 0 6px;font-size:16px}
+.fcard p{margin:0 0 14px;font-size:12.5px;color:var(--muted);flex:1;line-height:1.55}
+.fcard .go{font-size:12.5px;font-weight:800;display:flex;gap:6px;align-items:center}
+
+/* class cards */
+.ccard{position:relative;overflow:hidden;border-radius:30px;padding:26px;color:#fff;min-height:270px;display:flex;flex-direction:column;background:linear-gradient(145deg,var(--g1),var(--g2));box-shadow:0 18px 40px var(--gs);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.ccard:hover{transform:translateY(-9px) scale(1.015)}
+.ccard::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);transform:translateX(-130%);transition:transform .9s;pointer-events:none}
+.ccard:hover::before{transform:translateX(130%)}
+.ccard .num{position:absolute;right:-6px;bottom:-40px;font-family:Amiri,serif;font-size:12rem;font-weight:700;opacity:.16;line-height:1;pointer-events:none}
+.ccard .orb{position:absolute;border-radius:50%;background:rgba(255,255,255,.14);animation:floaty 8s ease-in-out infinite;pointer-events:none}
+.ccard .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;position:relative;z-index:1}
+.glass{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);padding:4px 12px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.05em}
+.ccard h3{margin:0;font-size:28px;font-weight:900;position:relative;z-index:1}
+.ccard .ar-sub{font-family:'Aref Ruqaa',Amiri,serif;font-size:20px;opacity:.95;position:relative;z-index:1;direction:rtl;text-align:left}
+.ccard p{font-size:13px;opacity:.92;margin:8px 0 18px;flex:1;line-height:1.55;position:relative;z-index:1}
+.ccard .enter{position:relative;z-index:1;background:#fff;font-weight:800;font-size:14px;padding:12px;border-radius:16px;width:100%;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 18px rgba(0,0,0,.15)}
+.ccard .enter:hover{transform:scale(1.03)}
+
+/* shared view header */
+.vhead{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.vhead .l{display:flex;align-items:center;gap:12px}
+.vhead .ico{width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.vhead h2{margin:0;font-size:18px;font-weight:800}
+.btn-back{background:var(--soft);color:var(--text);font-weight:700;font-size:12px;padding:9px 15px;border-radius:13px;display:inline-flex;gap:7px;align-items:center;transition:filter .2s}
+.btn-back:hover{filter:brightness(.95)}
+.btn{background:var(--p);color:#fff;font-weight:700;font-size:12.5px;padding:10px 18px;border-radius:12px;transition:transform .15s,filter .2s;display:inline-flex;gap:7px;align-items:center;justify-content:center}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.fld{width:100%;padding:11px 13px;font-size:13px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);outline:none;transition:border .2s,box-shadow .2s}
+.fld:focus{border-color:var(--p);box-shadow:0 0 0 3px color-mix(in srgb,var(--p) 20%,transparent)}
+textarea.fld{resize:vertical}
+.chip{padding:8px 16px;border-radius:99px;font-size:12px;font-weight:800;background:var(--soft);color:var(--pd);transition:all .2s}
+html.dark .chip{color:var(--text)}
+.chip:hover{background:var(--p);color:#fff}
+.chip.on{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+
+/* mufrodat */
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+.mcard:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(0,0,0,.1)}
+.mcard .tag{display:inline-block;font-size:10px;font-weight:800;background:var(--soft);color:var(--pd);padding:2px 9px;border-radius:99px;margin-top:6px}
+html.dark .mcard .tag{color:var(--text)}
+.spk{width:42px;height:42px;border-radius:50%;background:var(--soft);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;transition:all .2s}
+.spk:hover{background:var(--p);color:#fff;transform:scale(1.1)}
+
+/* video */
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
+.vbox{aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;margin-bottom:10px}
+.vbox iframe{width:100%;height:100%;border:0}
+
+/* spinner */
+.wheel-wrap{position:relative;width:min(88vw,340px);margin:18px auto 22px}
+.wheel-wrap canvas{width:100%;height:auto;border-radius:50%;border:6px solid #fcd34d;box-shadow:0 14px 34px rgba(245,158,11,.35);display:block;background:#fff}
+.pointer{position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:17px solid transparent;border-right:17px solid transparent;border-top:32px solid #ef4444;filter:drop-shadow(0 3px 3px rgba(0,0,0,.35));z-index:3}
+.btn-spin{background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;font-weight:900;font-size:15px;padding:14px 36px;border-radius:99px;box-shadow:0 10px 22px rgba(249,115,22,.4);width:100%;max-width:300px;transition:transform .2s}
+.btn-spin:hover:not(:disabled){transform:scale(1.04)}
+.btn-spin:disabled{opacity:.6;cursor:wait}
+.winner{margin-top:16px;min-height:62px;text-align:center}
+.winner .w{display:inline-block;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;font-weight:900;font-size:22px;padding:12px 28px;border-radius:20px;animation:pop .5s cubic-bezier(.2,1.6,.4,1);box-shadow:0 8px 20px rgba(245,158,11,.3)}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.gbox{border-radius:16px;padding:12px 14px;border:1.5px solid var(--line);background:var(--soft);font-size:13px;animation:pop .45s cubic-bezier(.2,1.4,.4,1) both}
+.gbox b{display:block;margin-bottom:5px;color:var(--p)}
+.gbox.rolling{animation:none;border-style:dashed}
+.gbox.rolling span{filter:blur(.6px)}
+.gname{display:inline-block;background:var(--card);border:1px solid var(--line);padding:3px 10px;border-radius:99px;margin:3px 3px 0 0;font-weight:600;font-size:12px}
+@keyframes spinicon{to{transform:rotate(360deg)}}
+.spinning-ic{display:inline-block;animation:spinicon .7s linear infinite}
+
+/* classroom */
+.cr-hero{padding:28px 26px}
+.cr-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.cr-stat{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:8px 14px;border-radius:14px;font-size:12px;font-weight:700;display:flex;gap:7px;align-items:center}
+.announce{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fde68a;border-radius:20px;padding:16px 18px;box-shadow:var(--shadow)}
+html.dark .announce{background:linear-gradient(135deg,#2a2208,#33290a);border-color:#5b4513}
+.announce .ai{width:38px;height:38px;border-radius:12px;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:ring 2.8s ease-in-out infinite;transform-origin:50% 20%}
+@keyframes ring{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(14deg)}80%{transform:rotate(-12deg)}85%{transform:rotate(8deg)}90%{transform:rotate(-4deg)}}
+.announce h4{margin:0;font-size:12px;color:#92400e;text-transform:uppercase;letter-spacing:.05em}
+html.dark .announce h4{color:#fcd34d}
+.announce p{margin:4px 0 0;font-size:14px;font-weight:600;line-height:1.55}
+.babtabs{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:thin}
+.babchip{flex-shrink:0;display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid var(--line);padding:10px 16px 10px 10px;border-radius:18px;text-align:left;font-weight:700;font-size:13px;transition:all .25s;color:var(--text)}
+.babchip .n{width:34px;height:34px;border-radius:12px;background:var(--soft);color:var(--cp);display:flex;align-items:center;justify-content:center;font-weight:900}
+.babchip:hover{transform:translateY(-3px)}
+.babchip.on{background:linear-gradient(135deg,var(--cp),var(--cp2));color:#fff;border-color:transparent;box-shadow:0 10px 20px var(--cs)}
+.babchip.on .n{background:rgba(255,255,255,.25);color:#fff}
+.babhead{position:relative;overflow:hidden;border-radius:24px;padding:22px 24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+.babhead::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(var(--cp),var(--cp2))}
+.babhead h3{margin:0 0 6px;font-size:21px;font-weight:900}
+.babhead .tp{margin-top:12px;background:var(--soft);border-radius:14px;padding:11px 14px;font-size:12.5px;line-height:1.6;white-space:pre-line}
+.babhead .tp b{color:var(--cp)}
+.mtg{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;transition:box-shadow .25s}
+.mtg[open]{box-shadow:0 16px 34px rgba(0,0,0,.1);border-color:var(--cp)}
+.mtg summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 18px}
+.mtg summary::-webkit-details-marker{display:none}
+.mtg .mno{width:46px;height:46px;border-radius:16px;background:linear-gradient(135deg,var(--cp),var(--cp2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;flex-shrink:0;box-shadow:0 8px 16px var(--cs)}
+.mtg .mt{font-size:11px;font-weight:800;color:var(--cp);text-transform:uppercase;letter-spacing:.06em}
+.mtg .ms{font-weight:800;font-size:15px;margin-top:1px}
+.mtg .mi{margin-left:auto;display:flex;gap:6px;align-items:center}
+.mtg .mi .dot{width:26px;height:26px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:11px;background:var(--soft);color:var(--muted)}
+.mtg .mi .dot.on{color:#fff}
+.mtg .chev{transition:transform .3s;color:var(--muted);margin-left:6px}
+.mtg[open] .chev{transform:rotate(180deg)}
+.mbody{padding:2px 20px 20px;border-top:1px dashed var(--line);animation:fadeUp .35s ease}
+.msec{margin-top:16px}
+.msec h5{margin:0 0 7px;font-size:13px;font-weight:800}
+.msec p{margin:0;font-size:13.5px;line-height:1.7;white-space:pre-line}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:8px 12px 8px 44px;margin-bottom:7px;background:var(--soft);border-radius:13px;font-size:13px;line-height:1.55}
+.steps li::before{content:counter(s);position:absolute;left:10px;top:8px;width:24px;height:24px;border-radius:50%;background:var(--cp);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
+.mres{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+.rbtn{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:15px;font-weight:800;font-size:13px;color:#fff;transition:transform .2s,box-shadow .2s}
+.rbtn small{display:block;font-weight:500;font-size:10.5px;opacity:.9}
+.rbtn i{font-size:19px}
+a.rbtn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.2)}
+.rbtn.slide{background:linear-gradient(135deg,#6366f1,#4338ca)}
+.rbtn.lkpd{background:linear-gradient(135deg,#a855f7,#7e22ce)}
+.rbtn.game{background:linear-gradient(135deg,#ec4899,#be185d)}
+.rbtn.off{background:var(--soft);color:var(--muted);font-weight:600}
+.empty{text-align:center;padding:36px 16px;color:var(--muted);font-size:13px;background:var(--card);border:1.5px dashed var(--line);border-radius:20px}
+.scorebox{background:var(--soft);border-radius:16px;padding:16px}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:13px;margin-top:8px}
+.srow small{color:var(--muted);display:block;font-size:11px}
+.sv{font-weight:900;font-size:16px;min-width:42px;text-align:center;padding:4px 10px;border-radius:10px}
+.sv.g{background:#dcfce7;color:#15803d}.sv.y{background:#fef9c3;color:#a16207}.sv.r{background:#fee2e2;color:#b91c1c}
+
+/* footer */
+footer{background:color-mix(in srgb,var(--card) 90%,transparent);border-top:1px solid var(--line);padding:12px 16px;font-size:11px;color:var(--muted)}
+footer .in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+footer button{background:none;color:var(--muted);font-weight:800;font-size:11px}
+footer button:hover{color:var(--gold)}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(2,6,23,.55);backdrop-filter:blur(5px);z-index:150;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.mbox{background:var(--card);border-radius:24px;width:100%;max-width:400px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.35);animation:pop .35s cubic-bezier(.2,1.3,.4,1);max-height:92vh;overflow-y:auto}
+.mbox h3{margin:0 0 14px;font-size:16px;font-weight:800}
+.mbox .center{text-align:center}
+.set-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px;font-weight:700}
+.set-row small{display:block;font-weight:500;color:var(--muted);font-size:11px;margin-top:2px}
+.sw{position:relative;width:46px;height:26px;flex-shrink:0}
+.sw input{opacity:0;width:0;height:0}
+.sw span{position:absolute;inset:0;background:#cbd5e1;border-radius:99px;transition:.25s;cursor:pointer}
+.sw span::before{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:.25s;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+.sw input:checked+span{background:var(--p)}
+.sw input:checked+span::before{transform:translateX(20px)}
+.themes{display:flex;gap:8px}
+.th{width:34px;height:34px;border-radius:50%;border:3px solid transparent;transition:transform .2s}
+.th.on{border-color:var(--text);transform:scale(1.12)}
+.th[data-t=sky]{background:linear-gradient(135deg,#38bdf8,#2563eb)}
+.th[data-t=emerald]{background:linear-gradient(135deg,#34d399,#047857)}
+.th[data-t=gold]{background:linear-gradient(135deg,#fbbf24,#b45309)}
+input[type=range]{width:100%;accent-color:var(--p)}
+#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:14px;font-size:13px;font-weight:600;z-index:300;opacity:0;pointer-events:none;transition:all .35s;max-width:90vw;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#toast.ok{background:#047857}#toast.err{background:#b91c1c}
+
+/* ===== ADMIN (selalu tema gelap seperti desain) ===== */
+#view-admin{position:fixed;inset:0;z-index:120;background:#0e1628;color:#e5edf8;display:none}
+#view-admin.open{display:flex}
+.adm-side{width:290px;flex-shrink:0;background:#060b17;border-right:1px solid #16213a;padding:22px 16px;display:flex;flex-direction:column;overflow-y:auto}
+.adm-brand{display:flex;gap:12px;align-items:center;padding:4px 8px 18px}
+.adm-brand .lg{font-size:26px}
+.adm-brand b{display:block;color:#fbbf24;font-size:19px;font-weight:800}
+.adm-brand span{font-size:12px;color:#94a3b8}
+.adm-nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.nav-btn{background:none;color:#cbd5e1;text-align:left;padding:13px 16px;border-radius:14px;font-size:14px;font-weight:600;display:flex;gap:12px;align-items:center;transition:background .2s}
+.nav-btn:hover{background:#111b30}
+.nav-btn.on{background:#f59e0b;color:#1c1203;font-weight:800}
+.adm-foot{display:flex;flex-direction:column;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid #16213a}
+.adm-foot button{padding:13px;border-radius:14px;font-weight:700;font-size:14px}
+.btn-reset{background:#2a0b1a;color:#fda4af;border:1px solid #5b1630}
+.btn-home{background:#f59e0b;color:#1c1203}
+.btn-out{background:#111b30;color:#cbd5e1;border:1px solid #1e2b47}
+.adm-main{flex:1;overflow-y:auto;padding:38px 46px 60px}
+.adm-main h2{margin:0;color:#fbbf24;font-size:27px;font-weight:800}
+.adm-sub{color:#94a3b8;font-size:14px;margin:6px 0 18px;padding-bottom:16px;border-bottom:1px solid #1b2744}
+.adm-card{background:#18233a;border:1px solid #243452;border-radius:20px;padding:22px;margin-bottom:18px}
+.adm-card h4{margin:0 0 14px;color:#fbbf24;font-size:15px;font-weight:800}
+.adm-lbl{display:block;font-weight:700;font-size:13px;margin:14px 0 7px;color:#e5edf8}
+.adm-lbl:first-child{margin-top:0}
+.adm-in{width:100%;padding:12px 15px;background:#101a2e;border:1.5px solid #243452;border-radius:13px;color:#e5edf8;font-size:14px;outline:none;transition:border .2s}
+.adm-in:focus{border-color:#f59e0b}
+textarea.adm-in{resize:vertical;min-height:70px}
+select.adm-in option{background:#101a2e}
+.adm-btn{background:#f59e0b;color:#1c1203;font-weight:800;font-size:14px;padding:13px 24px;border-radius:14px;transition:filter .2s,transform .15s;display:inline-flex;gap:8px;align-items:center}
+.adm-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.adm-btn.green{background:#059669;color:#fff}
+.adm-btn.red{background:#7f1d1d;color:#fecaca}
+.adm-btn.ghost{background:#111b30;color:#cbd5e1;border:1px solid #243452}
+.adm-btn.sm{padding:8px 14px;font-size:12px;border-radius:11px}
+.r3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+.adm-tbl{width:100%;border-collapse:collapse;font-size:14px}
+.adm-tbl th{background:#18233a;text-align:left;padding:14px 16px;font-weight:800;border-bottom:1px solid #243452}
+.adm-tbl td{padding:13px 16px;border-bottom:1px solid #1b2744}
+.adm-tbl td.k{color:#fbbf24;font-weight:600}
+.adm-tbl a,.lnk{color:#fb7185;font-weight:700;background:none;cursor:pointer;font-size:14px}
+.lnk.y{color:#fbbf24}
+.adm-warn{background:#3a2a07;border:1px solid #6b4d0e;color:#fde68a;padding:12px 16px;border-radius:14px;font-size:13px;margin-bottom:18px;line-height:1.55}
+.adm-ok{background:#052e22;border:1px solid #0d5c43;color:#86efac;padding:10px 16px;border-radius:14px;font-size:12.5px;margin-bottom:18px}
+.adm-pick{display:flex;flex-wrap:wrap;gap:8px}
+.adm-pick button{background:#101a2e;border:1.5px solid #243452;color:#e5edf8;padding:9px 14px;border-radius:12px;font-size:13px;font-weight:600;text-align:left}
+.adm-pick button:hover,.adm-pick button.on{border-color:#f59e0b;background:#2a2208}
+.adm-pick small{display:block;color:#94a3b8;font-size:11px}
+.bab-box{border:1.5px solid #2b3d60;border-radius:20px;padding:18px;margin-bottom:18px;background:#131d33}
+.mtg-box{border:1px solid #243452;border-radius:16px;padding:16px;margin-top:14px;background:#18233a}
+.mtg-box h5{margin:0 0 10px;color:#fbbf24;font-size:14px}
+.adm-chat{background:#101a2e;border:1px solid #243452;border-radius:18px;padding:16px;min-height:200px;display:flex;flex-direction:column;gap:10px}
+.bub{max-width:80%;padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.55}
+.bub.a{background:#243452;align-self:flex-start}
+.bub.u{background:#f59e0b;color:#1c1203;align-self:flex-end}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.kpi div{background:#101a2e;border:1px solid #243452;border-radius:14px;padding:14px}
+.kpi b{display:block;font-size:24px;color:#fbbf24}
+.kpi span{font-size:12px;color:#94a3b8}
+@media(max-width:860px){
+ #view-admin.open{flex-direction:column}
+ .adm-side{width:100%;flex-direction:column;padding:12px;max-height:44vh;border-right:0;border-bottom:1px solid #16213a}
+ .adm-nav{flex-direction:row;overflow-x:auto;flex:none;padding-bottom:6px}
+ .nav-btn{white-space:nowrap;padding:10px 14px;font-size:13px}
+ .adm-foot{flex-direction:row;margin-top:8px;padding-top:10px}
+ .adm-foot button{flex:1;padding:10px;font-size:12px}
+ .adm-brand{padding-bottom:8px}
+ .adm-main{padding:22px 16px 50px}
+ .adm-main h2{font-size:22px}
+ .hero{padding:26px 18px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div id="bgfx"></div>
+
+<header class="topbar">
+ <div class="topbar-in">
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+   <span class="pill"><i class="far fa-clock"></i><span id="live-clock">--:--:-- WIB</span></span>
+   <span class="pill gold" id="hijri-pill"><i class="far fa-calendar-alt"></i><span id="hijri-date"></span></span>
+  </div>
+  <button class="btn-set" onclick="openModal('modal-settings')"><i class="fas fa-sliders"></i> Pengaturan</button>
+ </div>
+</header>
+
+<main>
+<!-- ================= DASHBOARD ================= -->
+<div id="view-dashboard" class="view stack">
+ <section class="hero">
+  <svg class="geo" aria-hidden="true"><defs><pattern id="p8" width="90" height="90" patternUnits="userSpaceOnUse"><animateTransform attributeName="patternTransform" type="translate" from="0 0" to="90 90" dur="40s" repeatCount="indefinite"/><g fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"><rect x="22" y="22" width="46" height="46"/><rect x="22" y="22" width="46" height="46" transform="rotate(45 45 45)"/><circle cx="45" cy="45" r="31"/><circle cx="45" cy="45" r="4" fill="#fff" fill-opacity=".5"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#p8)"/></svg>
+  <div class="glow" style="width:320px;height:320px;background:#fde68a;top:-120px;right:-60px"></div>
+  <div class="glow" style="width:300px;height:300px;background:#67e8f9;bottom:-140px;left:20%;animation-delay:-4s"></div>
+  <span class="fl" style="left:4%;top:58%;font-size:70px">ب</span>
+  <span class="fl" style="left:30%;top:6%;font-size:54px;animation-delay:-3s">ع</span>
+  <span class="fl" style="right:22%;bottom:4%;font-size:78px;animation-delay:-6s">ر</span>
+  <span class="fl" style="right:5%;top:12%;font-size:60px;animation-delay:-2s">أ</span>
+  <span class="star" style="left:46%;top:14%;font-size:16px">✦</span>
+  <span class="star" style="left:12%;top:20%;font-size:12px;animation-delay:-1s">✦</span>
+  <span class="star" style="right:36%;top:60%;font-size:14px;animation-delay:-1.8s">✦</span>
+  <span class="star" style="right:9%;bottom:18%;font-size:11px;animation-delay:-.6s">✦</span>
+  <div class="lantern" style="right:18%"><svg width="34" height="70" viewBox="0 0 34 70"><line x1="17" y1="0" x2="17" y2="14" stroke="#fde68a" stroke-width="2"/><rect x="11" y="12" width="12" height="5" rx="2" fill="#f59e0b"/><path d="M9 20 Q17 14 25 20 L28 42 Q17 50 6 42 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/><path d="M13 22 L12 44 M21 22 L22 44" stroke="#b45309" stroke-opacity=".5"/><rect x="12" y="46" width="10" height="4" rx="2" fill="#f59e0b"/><line x1="17" y1="50" x2="17" y2="60" stroke="#fde68a" stroke-width="2"/><circle cx="17" cy="63" r="3" fill="#fde68a"/></svg></div>
+  <div class="lantern" style="right:26%;animation-delay:-2s;transform:scale(.75)"><svg width="34" height="70" viewBox="0 0 34 70"><line x1="17" y1="0" x2="17" y2="14" stroke="#fde68a" stroke-width="2"/><rect x="11" y="12" width="12" height="5" rx="2" fill="#f59e0b"/><path d="M9 20 Q17 14 25 20 L28 42 Q17 50 6 42 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/><path d="M13 22 L12 44 M21 22 L22 44" stroke="#b45309" stroke-opacity=".5"/><rect x="12" y="46" width="10" height="4" rx="2" fill="#f59e0b"/><line x1="17" y1="50" x2="17" y2="60" stroke="#fde68a" stroke-width="2"/><circle cx="17" cy="63" r="3" fill="#fde68a"/></svg></div>
+  <div class="hero-in">
+   <div class="brand">
+    <div class="sticker" onclick="openModal('modal-profile-web')" title="Ahlan wa sahlan!">
+     <svg viewBox="0 0 64 64"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#f59e0b"/></linearGradient><mask id="cm"><rect width="64" height="64" fill="#fff"/><circle cx="41" cy="26" r="20" fill="#000"/></mask></defs><circle cx="30" cy="34" r="24" fill="url(#gg)" mask="url(#cm)"/><text x="40" y="24" font-size="16" fill="#fff">★</text></svg>
+     <span class="wave">👋</span>
+    </div>
+    <div>
+     <div class="welcome-ar">أَهْلاً وَسَهْلاً</div>
+     <h1 id="display-site-title">Baitul 'Arabiyyah MIMHa</h1>
+     <p class="tag" id="display-tagline">Media Pembelajaran Bahasa Arab Interaktif</p>
+    </div>
+   </div>
+   <button class="ustaz-card" onclick="openModal('modal-profile-ustaz')">
+    <div id="ustaz-avatar-hero"></div>
+    <div><span class="badge">Pengampu</span><div id="display-ustaz-name" style="font-weight:800;font-size:14px;margin-top:3px"></div></div>
+   </button>
+  </div>
+ </section>
+
+ <section class="mahf">
+  <div class="mahf-txt" id="mahf-txt" style="display:flex;align-items:center;gap:16px">
+   <div style="font-size:30px;color:#fde68a">✨</div>
+   <div>
+    <div class="ar" id="mahfuzhat-arabic" style="--fs:1.7rem;font-weight:700;text-align:left"></div>
+    <div id="mahfuzhat-translation" style="font-size:13px;opacity:.9;font-style:italic;margin-top:2px"></div>
+   </div>
+  </div>
+  <button class="btn-glass" onclick="nextMahfuzhat()"><i class="fas fa-rotate"></i> Ganti Quote</button>
+ </section>
+
+ <section>
+  <h2 class="sec-t"><i class="fas fa-cubes"></i> Pusat Fitur & Media Pembelajaran</h2>
+  <div class="grid3">
+   <div class="fcard" onclick="switchView('mufrodat')">
+    <div class="ic" style="background:#e0f2fe;color:#0284c7"><i class="fas fa-book"></i></div>
+    <h3>Bank Mufrodat Terpusat</h3><p>Kosakata bahasa Arab per kelas & bab, lengkap dengan suara pengucapan.</p>
+    <div class="go" style="color:#0284c7">Buka Mufrodat <i class="fas fa-arrow-right"></i></div>
+   </div>
+   <div class="fcard" onclick="switchView('bioskop')">
+    <div class="ic" style="background:#fce7f3;color:#db2777"><i class="fas fa-film"></i></div>
+    <h3>Bioskop Mini Bahasa Arab</h3><p>Tonton video cerita dan kartun edukasi langsung di dalam website.</p>
+    <div class="go" style="color:#db2777">Putar Video <i class="fas fa-arrow-right"></i></div>
+   </div>
+   <div class="fcard" onclick="switchView('spinner')">
+    <div class="ic" style="background:#fef3c7;color:#d97706"><i class="fas fa-dharmachakra"></i></div>
+    <h3>Roda Acak & Kelompok</h3><p>Putar roda untuk memilih siswa atau bagi kelompok otomatis dengan animasi seru.</p>
+    <div class="go" style="color:#d97706">Buka Alat Acak <i class="fas fa-arrow-right"></i></div>
+   </div>
+  </div>
+ </section>
+
+ <section>
+  <h2 class="sec-t"><i class="fas fa-door-open"></i> Ruang Kelas Belajar</h2>
+  <div class="grid3">
+   <div class="ccard" style="--g1:#38bdf8;--g2:#2563eb;--gs:rgba(37,99,235,.38)">
+    <span class="orb" style="width:140px;height:140px;top:-40px;right:-30px"></span><span class="orb" style="width:70px;height:70px;bottom:70px;left:-20px;animation-delay:-3s"></span>
+    <div class="num">٧</div>
+    <div class="top"><span class="glass">FASE D</span><i class="fas fa-lock" style="color:#fde68a"></i></div>
+    <h3>Ruang Kelas 7</h3><div class="ar-sub">الصَّفُّ السَّابِعُ</div>
+    <p id="cdesc-7"></p>
+    <button class="enter" style="color:#1d4ed8" onclick="openClassPasswordModal('7')">Masuk Kelas 7 <i class="fas fa-arrow-right"></i></button>
+   </div>
+   <div class="ccard" style="--g1:#34d399;--g2:#0d9488;--gs:rgba(13,148,136,.38)">
+    <span class="orb" style="width:140px;height:140px;top:-40px;right:-30px;animation-delay:-2s"></span><span class="orb" style="width:70px;height:70px;bottom:70px;left:-20px;animation-delay:-5s"></span>
+    <div class="num">٨</div>
+    <div class="top"><span class="glass">FASE D</span><i class="fas fa-lock" style="color:#fde68a"></i></div>
+    <h3>Ruang Kelas 8</h3><div class="ar-sub">الصَّفُّ الثَّامِنُ</div>
+    <p id="cdesc-8"></p>
+    <button class="enter" style="color:#0f766e" onclick="openClassPasswordModal('8')">Masuk Kelas 8 <i class="fas fa-arrow-right"></i></button>
+   </div>
+   <div class="ccard" style="--g1:#fbbf24;--g2:#ea580c;--gs:rgba(234,88,12,.38)">
+    <span class="orb" style="width:140px;height:140px;top:-40px;right:-30px;animation-delay:-4s"></span><span class="orb" style="width:70px;height:70px;bottom:70px;left:-20px;animation-delay:-1s"></span>
+    <div class="num">٩</div>
+    <div class="top"><span class="glass">FASE D</span><i class="fas fa-lock" style="color:#fff7ed"></i></div>
+    <h3>Ruang Kelas 9</h3><div class="ar-sub">الصَّفُّ التَّاسِعُ</div>
+    <p id="cdesc-9"></p>
+    <button class="enter" style="color:#c2410c" onclick="openClassPasswordModal('9')">Masuk Kelas 9 <i class="fas fa-arrow-right"></i></button>
+   </div>
+  </div>
+ </section>
+</div>
+
+<!-- ================= MUFRODAT ================= -->
+<div id="view-mufrodat" class="view stack6 hidden">
+ <div class="vhead">
+  <div class="l"><div class="ico" style="background:#e0f2fe;color:#0284c7"><i class="fas fa-book"></i></div><h2>Bank Mufrodat Terpusat</h2></div>
+  <button class="btn-back" onclick="switchView('dashboard')"><i class="fas fa-arrow-left"></i> Kembali</button>
+ </div>
+ <div class="card" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+  <span style="font-size:12px;font-weight:800;color:var(--muted)">Kelas:</span>
+  <button class="chip" id="mf-c-7" onclick="renderMufrodat('7')">Kelas 7</button>
+  <button class="chip" id="mf-c-8" onclick="renderMufrodat('8')">Kelas 8</button>
+  <button class="chip" id="mf-c-9" onclick="renderMufrodat('9')">Kelas 9</button>
+  <select id="mufrodat-bab-filter" class="fld" style="width:auto;margin-left:auto;padding:8px 12px;font-weight:700" onchange="renderMufrodat(state.mfCls)"></select>
+  <input id="mufrodat-search" class="fld" style="width:170px;padding:8px 12px" placeholder="🔍 Cari kata…" oninput="renderMufrodat(state.mfCls)">
+ </div>
+ <div id="mufrodat-count" style="font-size:12px;color:var(--muted);font-weight:700"></div>
+ <div id="mufrodat-grid" class="grid3" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px"></div>
+</div>
+
+<!-- ================= BIOSKOP ================= -->
+<div id="view-bioskop" class="view stack6 hidden">
+ <div class="vhead">
+  <div class="l"><div class="ico" style="background:#fce7f3;color:#db2777"><i class="fas fa-film"></i></div><h2>Bioskop Mini</h2></div>
+  <button class="btn-back" onclick="switchView('dashboard')"><i class="fas fa-arrow-left"></i> Kembali</button>
+ </div>
+ <div id="bioskop-grid" class="grid2"></div>
+</div>
+
+<!-- ================= RODA ACAK ================= -->
+<div id="view-spinner" class="view stack6 hidden">
+ <div class="vhead">
+  <div class="l"><div class="ico" style="background:#fef3c7;color:#d97706"><i class="fas fa-dharmachakra"></i></div><h2>Roda Acak & Pembagi Kelompok</h2></div>
+  <button class="btn-back" onclick="switchView('dashboard')"><i class="fas fa-arrow-left"></i> Kembali</button>
+ </div>
+ <div class="grid2">
+  <div class="card" style="display:flex;flex-direction:column;gap:12px">
+   <h3 style="margin:0;font-size:15px;color:var(--p)"><i class="fas fa-users"></i> Data Siswa untuk Diacak</h3>
+   <select id="sp-source" class="fld" onchange="loadSpinnerSource()">
+    <option value="manual">✍️ Ketik manual</option>
+    <option value="7">Preset Kelas 7</option>
+    <option value="8">Preset Kelas 8</option>
+    <option value="9">Preset Kelas 9</option>
+   </select>
+   <textarea id="spinner-input-names" class="fld" rows="6" oninput="drawWheel()">Ahmad, Bilal, Umar, Ali, Utsman, Fatimah, Aisyah, Khadijah</textarea>
+   <div style="font-size:11.5px;color:var(--muted)">Pisahkan nama dengan koma. <b id="sp-count"></b></div>
+   <label style="font-size:12.5px;font-weight:600;display:flex;gap:8px;align-items:center"><input type="checkbox" id="sp-remove"> Keluarkan nama yang terpilih dari roda</label>
+   <div style="border-top:1px solid var(--line);padding-top:14px">
+    <h4 style="margin:0 0 8px;font-size:13px">Bagi Kelompok Otomatis</h4>
+    <div style="display:flex;gap:8px">
+     <select id="group-divide-count" class="fld"><option value="2">Bagi 2 Kelompok</option><option value="3">Bagi 3 Kelompok</option><option value="4">Bagi 4 Kelompok</option><option value="5">Bagi 5 Kelompok</option><option value="6">Bagi 6 Kelompok</option></select>
+     <button class="btn" id="btn-group" onclick="divideGroups()" style="flex-shrink:0"><i class="fas fa-shuffle"></i> Acak</button>
+    </div>
+    <div id="group-results" style="margin-top:12px;display:grid;gap:9px"></div>
+   </div>
+  </div>
+  <div class="card" style="display:flex;flex-direction:column;align-items:center">
+   <div class="wheel-wrap"><div class="pointer"></div><canvas id="wheelCanvas" width="360" height="360"></canvas></div>
+   <button class="btn-spin" id="btn-spin" onclick="spinWheel()">🎯 PUTAR RODA!</button>
+   <div class="winner" id="spinner-winner-result"></div>
+  </div>
+ </div>
+</div>
+
+<!-- ================= RUANG KELAS ================= -->
+<div id="view-classroom" class="view stack6 hidden">
+ <section class="hero cr-hero" id="cr-hero">
+  <svg class="geo" aria-hidden="true"><rect width="100%" height="100%" fill="url(#p8)"/></svg>
+  <span class="fl" style="right:6%;top:8%;font-size:90px" id="cr-num">٧</span>
+  <span class="star" style="left:48%;top:16%;font-size:14px">✦</span><span class="star" style="right:30%;bottom:20%;font-size:12px;animation-delay:-1.4s">✦</span>
+  <div class="hero-in">
+   <div>
+    <div class="welcome-ar" style="font-size:1.4rem">مَرْحَبًا بِكُمْ فِي الصَّفِّ</div>
+    <h1 id="class-title-text">Ruang Kelas 7</h1>
+    <div class="cr-stats"><span class="cr-stat"><i class="fas fa-layer-group"></i><span id="cr-stat-bab">0 Bab</span></span><span class="cr-stat"><i class="fas fa-chalkboard-user"></i><span id="cr-stat-mtg">0 Pertemuan</span></span><span class="cr-stat"><i class="fas fa-user-tie"></i><span id="cr-stat-teacher"></span></span></div>
+   </div>
+   <button class="btn-glass" onclick="switchView('dashboard')" style="padding:12px 18px;font-size:13px"><i class="fas fa-right-from-bracket"></i> Keluar Kelas</button>
+  </div>
+ </section>
+ <div class="announce"><div class="ai"><i class="fas fa-bullhorn"></i></div><div><h4>Papan Pengumuman Kelas</h4><p id="class-announcement-text"></p></div></div>
+ <section>
+  <h2 class="sec-t"><i class="fas fa-route" style="color:var(--cp)"></i> Jalur Belajar per Bab</h2>
+  <div class="babtabs" id="bab-tabs"></div>
+  <div id="bab-panel" class="stack6"></div>
+ </section>
+ <div class="card">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
+   <div><h3 style="margin:0;font-size:16px"><i class="fas fa-chart-bar" style="color:var(--cp)"></i> Cek Transparansi Nilai</h3><p style="margin:3px 0 0;font-size:12px;color:var(--muted)">Masukkan NISN milikmu untuk melihat rekap nilai</p></div>
+   <div style="display:flex;gap:8px;flex:1;min-width:230px;max-width:380px">
+    <input id="student-nisn-check" class="fld" placeholder="Ketik NISN…" inputmode="numeric" onkeydown="if(event.key==='Enter')checkStudentScore()">
+    <button class="btn" style="background:var(--cp);flex-shrink:0" onclick="checkStudentScore()">Cek Nilai</button>
+   </div>
+  </div>
+  <div id="student-score-result" class="hidden" style="margin-top:16px;border-top:1px solid var(--line);padding-top:16px"></div>
+ </div>
+</div>
+</main>
+
+<footer><div class="in"><span id="footer-copy">© 2026 Baitul 'Arabiyyah MIMHa</span><button onclick="tryOpenAdmin()"><i class="fas fa-lock"></i> Dapur Admin</button></div></footer>
+
+<!-- ================= DAPUR ADMIN ================= -->
+<div id="view-admin">
+ <aside class="adm-side">
+  <div class="adm-brand"><div class="lg">🍳</div><div><b>Dapur Admin</b><span>Manajemen Pembelajaran</span></div></div>
+  <nav class="adm-nav" id="adm-nav"></nav>
+  <div class="adm-foot">
+   <button class="btn-reset" onclick="resetConfig()">🔄 Setelan Awal (Reset)</button>
+   <button class="btn-out" onclick="adminLogout()">🚪 Keluar Admin</button>
+   <button class="btn-home" onclick="closeAdmin()">🏠 Kembali ke Utama</button>
+  </div>
+ </aside>
+ <section class="adm-main" id="adm-content"></section>
+</div>
+
+<!-- ================= MODALS ================= -->
+<div class="modal" id="modal-settings"><div class="mbox">
+ <h3><i class="fas fa-sliders" style="color:var(--p)"></i> Pengaturan Tampilan</h3>
+ <div class="set-row"><div>Mode layar<small>Terang atau gelap</small></div><label class="sw"><input type="checkbox" id="set-dark" onchange="setPref('dark',this.checked)"><span></span></label></div>
+ <div class="set-row"><div>Tema warna<small>Warna utama website</small></div><div class="themes"><button class="th" data-t="sky" onclick="setPref('theme','sky')" aria-label="Biru"></button><button class="th" data-t="emerald" onclick="setPref('theme','emerald')" aria-label="Hijau"></button><button class="th" data-t="gold" onclick="setPref('theme','gold')" aria-label="Emas"></button></div></div>
+ <div style="padding:12px 0;border-bottom:1px solid var(--line)">
+  <div style="font-size:13px;font-weight:700;display:flex;justify-content:space-between"><span>Ukuran tulisan Arab</span><span id="set-scale-val">100%</span></div>
+  <input type="range" id="set-scale" min="0.8" max="1.8" step="0.1" value="1" oninput="setPref('scale',parseFloat(this.value))">
+  <div class="ar" style="--fs:1.7rem;text-align:center;margin-top:4px">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+ </div>
+ <div class="set-row"><div>Suara & efek<small>Suara roda, konfeti, dan efek lainnya</small></div><label class="sw"><input type="checkbox" id="set-sound" onchange="setPref('sound',this.checked)"><span></span></label></div>
+ <div class="set-row"><div>Tampilkan harakat<small>Matikan untuk latihan membaca gundul</small></div><label class="sw"><input type="checkbox" id="set-harakat" onchange="setPref('harakat',this.checked)"><span></span></label></div>
+ <div style="display:flex;gap:8px;margin-top:18px"><button class="btn-back" style="flex:1;justify-content:center" onclick="resetPrefs()">Atur Ulang</button><button class="btn" style="flex:1" onclick="closeModal('modal-settings')">Selesai</button></div>
+</div></div>
+
+<div class="modal" id="modal-profile-web"><div class="mbox center">
+ <div class="avatar" style="width:84px;height:84px;margin:0 auto 10px;font-size:21px;border-radius:24px">MIMHa</div>
+ <div class="welcome-ar" style="text-align:center;background:linear-gradient(90deg,#d97706,#f59e0b,#b45309);-webkit-background-clip:text;background-clip:text">أَهْلاً وَسَهْلاً</div>
+ <h3 id="pw-title" style="font-size:19px;margin:4px 0 6px">Baitul 'Arabiyyah MIMHa</h3>
+ <p id="pw-about" style="font-size:13px;color:var(--muted);line-height:1.6;margin:0"></p>
+ <button class="btn" style="width:100%;margin-top:18px" onclick="closeModal('modal-profile-web')">Tutup</button>
+</div></div>
+
+<div class="modal" id="modal-profile-ustaz"><div class="mbox center">
+ <div id="ustaz-avatar-modal" style="display:flex;justify-content:center;margin-bottom:10px"></div>
+ <h3 id="pu-name" style="font-size:18px;margin:0 0 4px"></h3>
+ <p id="pu-role" style="font-size:12.5px;color:var(--muted);font-weight:700;margin:0"></p>
+ <button class="btn" style="width:100%;margin-top:18px" onclick="closeModal('modal-profile-ustaz')">Tutup</button>
+</div></div>
+
+<div class="modal" id="modal-password-class"><div class="mbox center">
+ <div style="width:54px;height:54px;border-radius:50%;background:#fef3c7;color:#d97706;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:22px"><i class="fas fa-key"></i></div>
+ <h3 id="modal-pass-title">Masuk Ruang Kelas</h3>
+ <input type="password" id="input-class-password" class="fld" style="text-align:center;font-weight:800" placeholder="Ketik kata kunci…" onkeydown="if(event.key==='Enter')verifyClassPassword()">
+ <div id="pass-hint" style="font-size:11.5px;color:#92400e;background:#fffbeb;padding:9px 12px;border-radius:12px;font-weight:600;margin-top:12px"></div>
+ <div style="display:flex;gap:8px;margin-top:16px"><button class="btn-back" style="flex:1;justify-content:center" onclick="closeModal('modal-password-class')">Batal</button><button class="btn" style="flex:1" onclick="verifyClassPassword()">Buka</button></div>
+</div></div>
+
+<div class="modal" id="modal-login-admin"><div class="mbox center">
+ <div style="width:54px;height:54px;border-radius:50%;background:#0f172a;color:#fbbf24;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:22px"><i class="fas fa-user-shield"></i></div>
+ <h3>Akses Dapur Admin</h3>
+ <input type="text" id="input-admin-user" class="fld" style="margin-bottom:10px;font-weight:700" autocomplete="username">
+ <input type="password" id="input-admin-pass" class="fld" style="font-weight:700" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')verifyAdminLogin()">
+ <div id="login-note" style="font-size:11px;color:var(--muted);margin-top:10px"></div>
+ <div style="display:flex;gap:8px;margin-top:16px"><button class="btn-back" style="flex:1;justify-content:center" onclick="closeModal('modal-login-admin')">Batal</button><button class="btn" style="flex:1;background:#0f172a" onclick="verifyAdminLogin()">Login</button></div>
+</div></div>
+
+<div id="toast"></div>
+
+<script>
+/* =====================================================================
+   KONFIGURASI FIREBASE — tempel hasil dari Firebase Console di sini.
+   Kalau masih kosong, website jalan di "mode lokal" (data hanya di browser).
+   Panduan lengkap ada di file PANDUAN-FIREBASE.md
+   ===================================================================== */
+const FIREBASE_CONFIG = {
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
+};
+const USE_FB = !!(FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.projectId);
+
+/* ===================== UTIL ===================== */
+const $ = id => document.getElementById(id);
+const clone = o => JSON.parse(JSON.stringify(o));
+const num = v => parseFloat(v) || 0;
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+const safeParse = s => { try { return JSON.parse(s); } catch (e) { return null; } };
+const safeUrl = u => { u = String(u || '').trim(); return /^https?:\/\//i.test(u) ? u : ''; };
+const sanitizeNisn = v => String(v || '').replace(/[^0-9A-Za-z]/g, '');
+const today = () => new Date().toISOString().slice(0, 10);
+let toastT;
+function toast(msg, type) {
+  const t = $('toast'); t.textContent = msg; t.className = 'show ' + (type || '');
+  clearTimeout(toastT); toastT = setTimeout(() => t.className = '', 3200);
+}
+function openModal(id) { $(id).classList.add('open'); }
+function closeModal(id) { $(id).classList.remove('open'); }
+document.addEventListener('click', e => { if (e.target.classList && e.target.classList.contains('modal')) e.target.classList.remove('open'); });
+
+/* ===================== DATA BAWAAN ===================== */
+const DEFAULT_CONFIG = {
+  title: "Baitul 'Arabiyyah MIMHa",
+  tagline: 'Media Pembelajaran Bahasa Arab Interaktif',
+  pengampu: 'Muhammad Yusuf A., S.Pd',
+  role: 'Guru Pengampu Bahasa Arab MIMHa',
+  photo: '',
+  about: 'Platform pembelajaran mandiri untuk santri menguasai bahasa Arab dengan interaktif.',
+  classDesc: {
+    '7': 'Mufrodat Dasar, Perkenalan & Peralatan Sekolah',
+    '8': 'Kegiatan Sehari-hari, Rumah & Hobi',
+    '9': "Tahun Baru Hijriyah, Al-Qur'an & Hari Besar"
+  },
+  announcements: {
+    '7': 'Selamat datang di Ruang Kelas 7! Silakan pelajari Mufrodat Perkenalan.',
+    '8': 'Ruang Kelas 8 aktif. Harap kerjakan LKPD Bab 1 minggu ini.',
+    '9': 'Kelas 9: Persiapan ujian lisan Hiwar hari Jumat.'
+  },
+  classPass: { '7': 'qolamun', '8': 'qolamun', '9': 'qolamun' },
+  passHint: '💡 Hint: "Pulpen" dalam bahasa Arab (latin)',
+  spinner: {
+    '7': "Usman, Zubair, Ali, Asma, Ja'far, Mu'adz, Salma",
+    '8': 'Bilal, Siti, Hasan, Husain',
+    '9': 'Umar, Khadijah, Fathimah'
+  },
+  videos: [
+    { title: 'Kartun Belajar Mufrodat', url: 'https://www.youtube.com/watch?v=5D344BInMmg' },
+    { title: 'Lagu Bahasa Arab Anak', url: 'https://www.youtube.com/watch?v=3Q3_N9Z9y_M' }
+  ],
+  mufrodat: [
+    { arab: 'مَدْرَسَةٌ', text: 'Sekolah', cls: '7', bab: '1' },
+    { arab: 'قَلَمٌ', text: 'Pulpen', cls: '7', bab: '1' },
+    { arab: 'كِتَابٌ', text: 'Buku', cls: '7', bab: '1' },
+    { arab: 'مُدَرِّسٌ', text: 'Guru (laki-laki)', cls: '7', bab: '1' },
+    { arab: 'طَالِبٌ', text: 'Siswa (laki-laki)', cls: '7', bab: '1' },
+    { arab: 'بَابٌ', text: 'Pintu', cls: '7', bab: '2' },
+    { arab: 'نَافِذَةٌ', text: 'Jendela', cls: '7', bab: '2' },
+    { arab: 'مَكْتَبٌ', text: 'Meja', cls: '7', bab: '2' },
+    { arab: 'بَيْتٌ', text: 'Rumah', cls: '8', bab: '1' },
+    { arab: 'غُرْفَةٌ', text: 'Kamar', cls: '8', bab: '1' },
+    { arab: 'مَطْبَخٌ', text: 'Dapur', cls: '8', bab: '1' },
+    { arab: 'قُرْآنٌ', text: "Al-Qur'an", cls: '9', bab: '1' },
+    { arab: 'سَنَةٌ', text: 'Tahun', cls: '9', bab: '1' },
+    { arab: 'هِجْرَةٌ', text: 'Hijrah', cls: '9', bab: '1' }
+  ],
+  bab: {
+    '7': [{
+      no: '1', judul: 'Perkenalan (التَّعَارُفُ)', desc: 'Mengenal kosakata dasar dan ungkapan perkenalan diri.',
+      tp: 'Siswa mampu memperkenalkan diri dalam bahasa Arab sederhana.',
+      pertemuan: [{
+        no: '1', judul: 'Salam & Perkenalan Diri', isi: 'Ungkapan salam dan kalimat "ismī ..." untuk memperkenalkan nama.',
+        alur: 'Pembukaan: salam dan doa\nApersepsi: tanya jawab nama teman\nGuru memodelkan kalimat perkenalan\nLatihan berpasangan\nPenutup: refleksi dan tugas',
+        slide: '', lkpd: '', game: '', gameNote: ''
+      }]
+    }],
+    '8': [{
+      no: '1', judul: 'Kegiatan Sehari-hari (الأَنْشِطَةُ اليَوْمِيَّةُ)', desc: 'Menceritakan aktivitas harian dengan kosakata Arab.',
+      tp: 'Siswa mampu menyebutkan dan menceritakan kegiatan sehari-hari.',
+      pertemuan: [{
+        no: '1', judul: 'Kegiatan Pagi Hari', isi: 'Kosakata kegiatan dari bangun tidur hingga berangkat sekolah.',
+        alur: 'Pembukaan\nTayangan video kegiatan pagi\nPengenalan mufrodat\nLatihan hiwar\nPenutup', slide: '', lkpd: '', game: '', gameNote: ''
+      }]
+    }],
+    '9': [{
+      no: '1', judul: 'Tahun Baru Hijriyah (رَأْسُ السَّنَةِ الهِجْرِيَّةِ)', desc: 'Mengenal momentum hijrah dan kosakata terkait.',
+      tp: 'Siswa mampu memahami teks pendek tentang tahun baru Hijriyah.',
+      pertemuan: [{
+        no: '1', judul: 'Teks Bacaan Tahun Baru Hijriyah', isi: 'Membaca dan memahami teks pendek.',
+        alur: 'Pembukaan\nMembaca teks bersama\nMenjawab pertanyaan pemahaman\nDiskusi\nPenutup', slide: '', lkpd: '', game: '', gameNote: ''
+      }]
+    }]
+  }
+};
+const MAHFUZHAT = [
+  { ar: 'مَنْ جَدَّ وَجَدَ', id: 'Siapa yang bersungguh-sungguh, ia akan mendapatkan.' },
+  { ar: 'مَنْ سَارَ عَلَى الدَّرْبِ وَصَلَ', id: 'Siapa yang berjalan di jalannya, ia akan sampai.' },
+  { ar: 'مَنْ صَبَرَ ظَفِرَ', id: 'Siapa yang bersabar, ia akan beruntung.' },
+  { ar: 'الصَّبْرُ مِفْتَاحُ الفَرَجِ', id: 'Kesabaran adalah kunci kelapangan.' },
+  { ar: 'الوَقْتُ كَالسَّيْفِ', id: 'Waktu bagaikan pedang.' },
+  { ar: 'العِلْمُ فِي الصِّغَرِ كَالنَّقْشِ عَلَى الحَجَرِ', id: 'Ilmu di waktu kecil bagaikan ukiran di atas batu.' },
+  { ar: 'النَّظَافَةُ مِنَ الإِيمَانِ', id: 'Kebersihan sebagian dari iman.' }
+];
+const CLASS_THEME = {
+  '7': { g1: '#38bdf8', g2: '#2563eb', gd: '#1d4ed8', sh: 'rgba(37,99,235,.35)' },
+  '8': { g1: '#34d399', g2: '#0d9488', gd: '#0f766e', sh: 'rgba(13,148,136,.35)' },
+  '9': { g1: '#fbbf24', g2: '#ea580c', gd: '#c2410c', sh: 'rgba(234,88,12,.35)' }
+};
+
+/* ===================== STATE ===================== */
+let config = clone(DEFAULT_CONFIG);
+const state = { activeClass: null, activeBab: 0, mfCls: '7', mahf: 0, passTarget: null };
+const PREF_KEY = 'mimha_prefs_v1';
+let prefs = Object.assign({ dark: false, theme: 'sky', scale: 1, sound: true, harakat: true }, safeParse(lsGet(PREF_KEY)) || {});
+let isAdmin = false;
+let adminStudents = {};
+const adminState = { tab: 'branding', jCls: '7', nCls: '7', nSel: null, sFilter: 'all', mCls: '7', mBab: 'all' };
+
+function mergeConfig(l) {
+  const d = clone(DEFAULT_CONFIG);
+  if (!l) return d;
+  for (const k in l) {
+    if (l[k] && typeof l[k] === 'object' && !Array.isArray(l[k]) && d[k] && typeof d[k] === 'object') d[k] = Object.assign(d[k], l[k]);
+    else d[k] = l[k];
+  }
+  return d;
+}
+
+/* ===================== DATABASE (Firebase / lokal) ===================== */
+let fb = null;
+async function initFirebase() {
+  const V = '10.12.2', B = 'https://www.gstatic.com/firebasejs/' + V + '/';
+  const [a, f, au] = await Promise.all([import(B + 'firebase-app.js'), import(B + 'firebase-firestore.js'), import(B + 'firebase-auth.js')]);
+  const app = a.initializeApp(FIREBASE_CONFIG);
+  fb = { db: f.getFirestore(app), auth: au.getAuth(app), doc: f.doc, getDoc: f.getDoc, setDoc: f.setDoc, collection: f.collection, getDocs: f.getDocs, deleteDoc: f.deleteDoc, signIn: au.signInWithEmailAndPassword, signOut: au.signOut };
+}
+const LS_CFG = 'mimha_config_v1', LS_STU = 'mimha_students_v1';
+const localStudents = () => safeParse(lsGet(LS_STU)) || {};
+const DB = {
+  async loadConfig() {
+    if (USE_FB) { const s = await fb.getDoc(fb.doc(fb.db, 'site', 'config')); return s.exists() ? s.data() : null; }
+    return safeParse(lsGet(LS_CFG));
+  },
+  async saveConfig(c) {
+    const data = clone(c);
+    if (USE_FB) await fb.setDoc(fb.doc(fb.db, 'site', 'config'), data);
+    else lsSet(LS_CFG, JSON.stringify(data));
+  },
+  async getStudent(nisn) {
+    nisn = sanitizeNisn(nisn); if (!nisn) return null;
+    if (USE_FB) { const s = await fb.getDoc(fb.doc(fb.db, 'siswa', nisn)); return s.exists() ? s.data() : null; }
+    return localStudents()[nisn] || null;
+  },
+  async listStudents() {
+    if (USE_FB) { const snap = await fb.getDocs(fb.collection(fb.db, 'siswa')); const o = {}; snap.forEach(d => o[d.id] = d.data()); return o; }
+    return localStudents();
+  },
+  async saveStudent(s) {
+    const data = clone(s);
+    if (USE_FB) await fb.setDoc(fb.doc(fb.db, 'siswa', data.nisn), data);
+    else { const all = localStudents(); all[data.nisn] = data; lsSet(LS_STU, JSON.stringify(all)); }
+  },
+  async deleteStudent(nisn) {
+    if (USE_FB) await fb.deleteDoc(fb.doc(fb.db, 'siswa', nisn));
+    else { const all = localStudents(); delete all[nisn]; lsSet(LS_STU, JSON.stringify(all)); }
+  }
+};
+async function persist(msg) {
+  try { await DB.saveConfig(config); toast(msg || 'Tersimpan ✅', 'ok'); refreshPublic(); return true; }
+  catch (e) { console.error(e); toast('Gagal menyimpan: ' + (e.code || e.message || 'error') + (e.code === 'permission-denied' ? ' (login admin dulu / cek rules)' : ''), 'err'); return false; }
+}
+
+/* ===================== PENGATURAN ===================== */
+function applyPrefs() {
+  const r = document.documentElement;
+  r.classList.toggle('dark', !!prefs.dark);
+  r.dataset.theme = prefs.theme;
+  r.style.setProperty('--arab-scale', prefs.scale);
+  $('set-dark').checked = !!prefs.dark; $('set-sound').checked = !!prefs.sound; $('set-harakat').checked = !!prefs.harakat;
+  $('set-scale').value = prefs.scale; $('set-scale-val').textContent = Math.round(prefs.scale * 100) + '%';
+  document.querySelectorAll('.th').forEach(b => b.classList.toggle('on', b.dataset.t === prefs.theme));
+  renderMahf(false);
+  if (!$('view-mufrodat').classList.contains('hidden')) renderMufrodat(state.mfCls);
+}
+function setPref(k, v) { prefs[k] = v; lsSet(PREF_KEY, JSON.stringify(prefs)); applyPrefs(); }
+function resetPrefs() { prefs = { dark: false, theme: 'sky', scale: 1, sound: true, harakat: true }; lsSet(PREF_KEY, JSON.stringify(prefs)); applyPrefs(); toast('Pengaturan dikembalikan'); }
+const ar = t => prefs.harakat ? t : String(t).replace(/[\u064B-\u065F\u0670]/g, '');
+
+/* ===================== JAM & TANGGAL ===================== */
+function updateClock() {
+  $('live-clock').textContent = new Date().toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta', hour12: false }) + ' WIB';
+}
+function setHijri() {
+  let s = '';
+  try {
+    s = new Intl.DateTimeFormat('id-ID-u-ca-islamic-umalqura', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date());
+    if (!/H$/.test(s.trim())) s += ' H';
+  } catch (e) {}
+  if (s) $('hijri-date').textContent = s; else $('hijri-pill').classList.add('hidden');
+}
+
+/* ===================== NAVIGASI ===================== */
+function switchView(id) {
+  document.querySelectorAll('main > .view').forEach(v => v.classList.add('hidden'));
+  $('view-' + id).classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'mufrodat') renderMufrodat(state.mfCls);
+  if (id === 'bioskop') renderBioskop();
+  if (id === 'spinner') { loadSpinnerSource(); }
+}
+
+/* ===================== BRANDING ===================== */
+function avatarHTML(size) {
+  const p = safeUrl(config.photo);
+  const ini = (config.pengampu || 'U').split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  return '<div class="avatar" style="width:' + size + 'px;height:' + size + 'px;font-size:' + Math.round(size / 2.7) + 'px">' + (p ? '<img src="' + esc(p) + '" alt="" onerror="this.remove()">' : esc(ini)) + '</div>';
+}
+function applyBranding() {
+  document.title = config.title;
+  $('display-site-title').textContent = config.title;
+  $('display-tagline').textContent = config.tagline;
+  $('display-ustaz-name').textContent = config.pengampu;
+  $('ustaz-avatar-hero').innerHTML = avatarHTML(48);
+  $('ustaz-avatar-modal').innerHTML = avatarHTML(96);
+  $('pu-name').textContent = config.pengampu; $('pu-role').textContent = config.role;
+  $('pw-title').textContent = config.title; $('pw-about').textContent = config.about;
+  $('footer-copy').textContent = '© ' + new Date().getFullYear() + ' ' + config.title;
+  ['7', '8', '9'].forEach(c => $('cdesc-' + c).textContent = config.classDesc[c] || '');
+}
+function refreshPublic() {
+  applyBranding();
+  if (!$('view-classroom').classList.contains('hidden')) renderClassroom();
+  if (!$('view-mufrodat').classList.contains('hidden')) renderMufrodat(state.mfCls);
+  if (!$('view-bioskop').classList.contains('hidden')) renderBioskop();
+}
+
+/* ===================== MAHFUZHAT ===================== */
+function renderMahf(anim) {
+  const m = MAHFUZHAT[state.mahf];
+  const apply = () => { $('mahfuzhat-arabic').textContent = ar(m.ar); $('mahfuzhat-translation').textContent = '"' + m.id + '"'; };
+  if (!anim) { apply(); return; }
+  const t = $('mahf-txt'); t.classList.add('out');
+  setTimeout(() => { apply(); t.classList.remove('out'); }, 320);
+}
+function nextMahfuzhat() { state.mahf = (state.mahf + 1) % MAHFUZHAT.length; renderMahf(true); }
+
+/* ===================== MASUK KELAS ===================== */
+function openClassPasswordModal(c) {
+  state.passTarget = c;
+  $('modal-pass-title').textContent = 'Masuk Ruang Kelas ' + c;
+  $('input-class-password').value = '';
+  $('pass-hint').textContent = config.passHint || '';
+  $('pass-hint').classList.toggle('hidden', !config.passHint);
+  openModal('modal-password-class');
+  setTimeout(() => $('input-class-password').focus(), 100);
+}
+function verifyClassPassword() {
+  const v = $('input-class-password').value.trim().toLowerCase();
+  const real = String(config.classPass[state.passTarget] || '').trim().toLowerCase();
+  if (real && v === real) { closeModal('modal-password-class'); openClassroomView(state.passTarget); }
+  else toast('Kata sandi yang kamu masukkan salah ❌', 'err');
+}
+
+/* ===================== RUANG KELAS ===================== */
+const getBabs = c => (config.bab[c] || []).slice().sort((a, b) => num(a.no) - num(b.no));
+function openClassroomView(c) {
+  state.activeClass = c; state.activeBab = 0;
+  const t = CLASS_THEME[c], v = $('view-classroom');
+  v.style.setProperty('--cp', t.g2); v.style.setProperty('--cp2', t.g1); v.style.setProperty('--cs', t.sh);
+  const h = $('cr-hero'); h.style.setProperty('--h1', t.gd); h.style.setProperty('--h2', t.g2); h.style.setProperty('--h3', t.g1);
+  $('cr-num').textContent = { '7': '٧', '8': '٨', '9': '٩' }[c];
+  $('student-nisn-check').value = ''; $('student-score-result').classList.add('hidden');
+  renderClassroom(); switchView('classroom');
+}
+function renderClassroom() {
+  const c = state.activeClass; if (!c) return;
+  const babs = getBabs(c);
+  const mt = babs.reduce((s, b) => s + (b.pertemuan || []).length, 0);
+  $('class-title-text').textContent = 'Ruang Kelas ' + c;
+  $('cr-stat-bab').textContent = babs.length + ' Bab';
+  $('cr-stat-mtg').textContent = mt + ' Pertemuan';
+  $('cr-stat-teacher').textContent = config.pengampu;
+  $('class-announcement-text').textContent = config.announcements[c] || 'Belum ada pengumuman.';
+  if (state.activeBab >= babs.length) state.activeBab = 0;
+  $('bab-tabs').innerHTML = babs.length ? babs.map((b, i) => '<button class="babchip ' + (i === state.activeBab ? 'on' : '') + '" onclick="selectBab(' + i + ')"><span class="n">' + esc(b.no) + '</span><span>Bab ' + esc(b.no) + '<br><small style="font-weight:500;opacity:.85">' + esc((b.judul || '').split('(')[0].trim() || 'Tanpa judul') + '</small></span></button>').join('') : '';
+  renderBabPanel();
+}
+function selectBab(i) { state.activeBab = i; renderClassroom(); }
+function renderBabPanel() {
+  const babs = getBabs(state.activeClass), p = $('bab-panel');
+  if (!babs.length) { p.innerHTML = '<div class="empty">📚 Materi untuk kelas ini belum ditambahkan oleh guru.</div>'; return; }
+  const b = babs[state.activeBab], mts = (b.pertemuan || []).slice().sort((x, y) => num(x.no) - num(y.no));
+  let h = '<div class="babhead"><div class="badge" style="background:var(--cp);color:#fff">BAB ' + esc(b.no) + '</div><h3 style="margin-top:8px">' + esc(b.judul) + '</h3>' + (b.desc ? '<div style="font-size:13.5px;color:var(--muted);line-height:1.6">' + esc(b.desc) + '</div>' : '') + (b.tp ? '<div class="tp"><b>🎯 Tujuan Pembelajaran:</b>\n' + esc(b.tp) + '</div>' : '') + '</div>';
+  if (!mts.length) h += '<div class="empty">Belum ada pertemuan pada bab ini.</div>';
+  mts.forEach((m, i) => {
+    const steps = String(m.alur || '').split('\n').map(s => s.replace(/^\s*(\d+[.)]|[-•*])\s*/, '').trim()).filter(Boolean);
+    const sl = safeUrl(m.slide), lk = safeUrl(m.lkpd), gm = safeUrl(m.game);
+    h += '<details class="mtg"' + (i === 0 ? ' open' : '') + '><summary><div class="mno">' + esc(m.no) + '</div><div><div class="mt">Pertemuan ' + esc(m.no) + '</div><div class="ms">' + esc(m.judul || 'Tanpa judul') + '</div></div><div class="mi">'
+      + '<span class="dot ' + (sl ? 'on' : '') + '" style="' + (sl ? 'background:#6366f1' : '') + '"><i class="fas fa-display"></i></span>'
+      + '<span class="dot ' + (lk ? 'on' : '') + '" style="' + (lk ? 'background:#a855f7' : '') + '"><i class="fas fa-pen-to-square"></i></span>'
+      + '<span class="dot ' + (gm ? 'on' : '') + '" style="' + (gm ? 'background:#ec4899' : '') + '"><i class="fas fa-gamepad"></i></span>'
+      + '<i class="fas fa-chevron-down chev"></i></div></summary><div class="mbody">'
+      + (m.isi ? '<div class="msec"><h5>📖 Yang dipelajari</h5><p>' + esc(m.isi) + '</p></div>' : '')
+      + (steps.length ? '<div class="msec"><h5>🧭 Alur pembelajaran</h5><ol class="steps">' + steps.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol></div>' : '')
+      + '<div class="mres">'
+      + (sl ? '<a class="rbtn slide" href="' + esc(sl) + '" target="_blank" rel="noopener"><i class="fas fa-display"></i><span>Slide Canva<small>Materi presentasi</small></span></a>' : '<span class="rbtn off"><i class="fas fa-display"></i><span>Slide<small>Belum tersedia</small></span></span>')
+      + (lk ? '<a class="rbtn lkpd" href="' + esc(lk) + '" target="_blank" rel="noopener"><i class="fas fa-pen-to-square"></i><span>LKPD<small>Lembar kerja</small></span></a>' : '<span class="rbtn off"><i class="fas fa-pen-to-square"></i><span>LKPD<small>Belum tersedia</small></span></span>')
+      + (gm ? '<a class="rbtn game" href="' + esc(gm) + '" target="_blank" rel="noopener"><i class="fas fa-gamepad"></i><span>Game<small>' + esc(m.gameNote || 'Main sekarang') + '</small></span></a>' : '<span class="rbtn off"><i class="fas fa-gamepad"></i><span>Game<small>Belum tersedia</small></span></span>')
+      + '</div></div></details>';
+  });
+  p.innerHTML = h;
+}
+async function checkStudentScore() {
+  const nisn = sanitizeNisn($('student-nisn-check').value), res = $('student-score-result');
+  res.classList.remove('hidden');
+  if (!nisn) { res.innerHTML = '<div class="empty">Ketik NISN dulu ya 🙂</div>'; return; }
+  res.innerHTML = '<div class="empty">Mencari data…</div>';
+  try {
+    const st = await DB.getStudent(nisn);
+    if (st && String(st.cls) === String(state.activeClass)) {
+      const items = (st.nilai || []);
+      const avg = items.length ? items.reduce((s, x) => s + num(x.val), 0) / items.length : 0;
+      res.innerHTML = '<div class="scorebox"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div><div style="font-size:11px;color:var(--muted);font-weight:700">DATA DITEMUKAN</div><div style="font-weight:900;font-size:17px;color:var(--cp)">' + esc(st.name) + '</div></div>'
+        + (items.length ? '<div style="text-align:right"><div style="font-size:11px;color:var(--muted);font-weight:700">RATA-RATA</div><div style="font-weight:900;font-size:24px">' + avg.toFixed(1) + '</div></div>' : '') + '</div>'
+        + (items.length ? items.slice().reverse().map(x => '<div class="srow"><div><b>' + esc(x.ket) + '</b><small>' + esc(x.tgl || '') + '</small></div><span class="sv ' + (x.val >= 80 ? 'g' : x.val >= 70 ? 'y' : 'r') + '">' + esc(x.val) + '</span></div>').join('') : '<div class="srow" style="justify-content:center;color:var(--muted)">Belum ada nilai yang diinput guru.</div>') + '</div>';
+    } else res.innerHTML = '<div class="empty" style="color:#dc2626;border-color:#fecaca">NISN tidak ditemukan di Kelas ' + esc(state.activeClass) + '.</div>';
+  } catch (e) { console.error(e); res.innerHTML = '<div class="empty" style="color:#dc2626">Gagal mengambil data. Coba lagi nanti.</div>'; }
+}
+
+/* ===================== MUFRODAT ===================== */
+function babNumsFor(c) {
+  const s = new Set();
+  getBabs(c).forEach(b => s.add(String(b.no)));
+  config.mufrodat.filter(m => m.cls === c).forEach(m => s.add(String(m.bab)));
+  return [...s].sort((a, b) => num(a) - num(b));
+}
+function babTitle(c, n) { const b = (config.bab[c] || []).find(x => String(x.no) === String(n)); return b && b.judul ? ' — ' + b.judul.split('(')[0].trim() : ''; }
+function renderMufrodat(c) {
+  state.mfCls = c;
+  ['7', '8', '9'].forEach(x => $('mf-c-' + x).classList.toggle('on', x === c));
+  const sel = $('mufrodat-bab-filter'), prev = sel.value || 'all';
+  const nums = babNumsFor(c);
+  sel.innerHTML = '<option value="all">Semua Bab</option>' + nums.map(n => '<option value="' + esc(n) + '">Bab ' + esc(n) + esc(babTitle(c, n)) + '</option>').join('');
+  sel.value = nums.includes(prev) ? prev : 'all';
+  const q = $('mufrodat-search').value.trim().toLowerCase();
+  const list = config.mufrodat.filter(m => m.cls === c && (sel.value === 'all' || String(m.bab) === sel.value) && (!q || m.text.toLowerCase().includes(q) || m.arab.includes(q)));
+  window._mf = list;
+  $('mufrodat-count').textContent = list.length + ' kata ditemukan';
+  $('mufrodat-grid').innerHTML = list.length ? list.map((m, i) => '<div class="mcard"><div><div class="ar" style="--fs:1.9rem;font-weight:700;color:var(--p);text-align:left">' + esc(ar(m.arab)) + '</div><div style="font-size:13px;font-weight:700;margin-top:2px">' + esc(m.text) + '</div><span class="tag">Kelas ' + esc(m.cls) + ' · Bab ' + esc(m.bab) + '</span></div><button class="spk" onclick="speakIdx(' + i + ')" aria-label="Dengarkan"><i class="fas fa-volume-high"></i></button></div>').join('') : '<div class="empty" style="grid-column:1/-1">Belum ada mufrodat untuk pilihan ini.</div>';
+}
+function speakIdx(i) { speak(window._mf[i].arab); }
+function speak(t) {
+  if (!('speechSynthesis' in window)) { toast('Perangkat ini belum mendukung suara'); return; }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(t); u.lang = 'ar-SA'; u.rate = 0.8;
+  const v = speechSynthesis.getVoices().find(x => /^ar/i.test(x.lang));
+  if (v) u.voice = v; else if (speechSynthesis.getVoices().length) toast('Suara bahasa Arab belum terpasang di perangkat ini');
+  speechSynthesis.speak(u);
+}
+
+/* ===================== BIOSKOP ===================== */
+function ytId(u) { u = String(u || '').trim(); const m = u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); if (m) return m[1]; return /^[\w-]{11}$/.test(u) ? u : ''; }
+function renderBioskop() {
+  const g = $('bioskop-grid');
+  if (!config.videos.length) { g.innerHTML = '<div class="empty" style="grid-column:1/-1">Belum ada video.</div>'; return; }
+  g.innerHTML = config.videos.map(v => {
+    const id = ytId(v.url);
+    return '<div class="vcard">' + (id ? '<div class="vbox"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/' + id + '" allowfullscreen title="' + esc(v.title) + '"></iframe></div>' : '<div class="vbox" style="display:flex;align-items:center;justify-content:center"><a class="btn" href="' + esc(safeUrl(v.url)) + '" target="_blank" rel="noopener">Buka video</a></div>') + '<h3 style="margin:0;font-size:14px">' + esc(v.title) + '</h3></div>';
+  }).join('');
+}
+
+/* ===================== SUARA & EFEK ===================== */
+let actx;
+function beep(f, d, vol) {
+  if (!prefs.sound) return;
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    const o = actx.createOscillator(), g = actx.createGain();
+    o.type = 'triangle'; o.frequency.value = f || 700; g.gain.value = vol || 0.05;
+    o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime + (d || 0.04));
+  } catch (e) {}
+}
+function fanfare() { [523, 659, 784, 1046].forEach((f, i) => setTimeout(() => beep(f, 0.16, 0.07), i * 120)); }
+function confetti() {
+  if (!prefs.sound) return;
+  const c = document.createElement('canvas');
+  c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:250';
+  c.width = innerWidth; c.height = innerHeight; document.body.appendChild(c);
+  const x = c.getContext('2d'), cols = ['#f59e0b', '#0284c7', '#10b981', '#ec4899', '#8b5cf6', '#ef4444'];
+  const ps = Array.from({ length: 150 }, () => ({ x: c.width / 2 + (Math.random() - .5) * 240, y: c.height * .4, vx: (Math.random() - .5) * 15, vy: -Math.random() * 15 - 4, s: Math.random() * 8 + 5, c: cols[Math.random() * cols.length | 0], r: Math.random() * 6, vr: (Math.random() - .5) * .4 }));
+  const t0 = performance.now();
+  (function f(t) {
+    const el = t - t0; x.clearRect(0, 0, c.width, c.height);
+    ps.forEach(p => { p.vy += .36; p.x += p.vx; p.y += p.vy; p.r += p.vr; x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.globalAlpha = Math.max(0, 1 - el / 3200); x.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * .6); x.restore(); });
+    if (el < 3200) requestAnimationFrame(f); else c.remove();
+  })(t0);
+}
+
+/* ===================== RODA ACAK ===================== */
+let wheelRot = 0, spinning = false;
+const WHEEL_COLORS = ['#f97316', '#0284c7', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#14b8a6', '#ef4444'];
+const getNames = () => $('spinner-input-names').value.split(/[,\n]/).map(n => n.trim()).filter(Boolean);
+function loadSpinnerSource() {
+  const s = $('sp-source').value;
+  if (s !== 'manual') $('spinner-input-names').value = config.spinner[s] || '';
+  drawWheel();
+}
+function drawWheel() {
+  const cvs = $('wheelCanvas'), ctx = cvs.getContext('2d'), names = getNames(), n = names.length;
+  $('sp-count').textContent = n + ' nama';
+  ctx.clearRect(0, 0, 360, 360);
+  const cx = 180, R = 172;
+  if (!n) { ctx.beginPath(); ctx.arc(cx, cx, R, 0, 7); ctx.fillStyle = '#e2e8f0'; ctx.fill(); ctx.fillStyle = '#64748b'; ctx.font = 'bold 16px Inter'; ctx.textAlign = 'center'; ctx.fillText('Isi nama dulu', cx, cx + 5); return; }
+  const arc = 2 * Math.PI / n;
+  for (let i = 0; i < n; i++) {
+    ctx.beginPath(); ctx.moveTo(cx, cx); ctx.arc(cx, cx, R, i * arc, (i + 1) * arc); ctx.closePath();
+    ctx.fillStyle = WHEEL_COLORS[i % WHEEL_COLORS.length]; ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.save(); ctx.translate(cx, cx); ctx.rotate(i * arc + arc / 2);
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.font = 'bold ' + Math.max(10, Math.min(18, 320 / n)) + 'px Inter';
+    const nm = names[i].length > 14 ? names[i].slice(0, 13) + '…' : names[i];
+    ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 3;
+    ctx.fillText(nm, R - 14, 0); ctx.restore();
+  }
+  ctx.beginPath(); ctx.arc(cx, cx, 22, 0, 7); ctx.fillStyle = '#fff'; ctx.fill();
+  ctx.beginPath(); ctx.arc(cx, cx, 11, 0, 7); ctx.fillStyle = '#f59e0b'; ctx.fill();
+}
+function spinWheel() {
+  if (spinning) return;
+  const names = getNames(), n = names.length;
+  if (n < 2) { toast('Isi minimal 2 nama ya'); return; }
+  spinning = true; $('btn-spin').disabled = true; $('spinner-winner-result').innerHTML = '';
+  const cvs = $('wheelCanvas'), seg = 360 / n, w = Math.floor(Math.random() * n);
+  const c = (w + .5) * seg + (Math.random() - .5) * seg * .7;
+  const target = ((270 - c) % 360 + 360) % 360, cur = ((wheelRot % 360) + 360) % 360;
+  const delta = ((target - cur) + 360) % 360 + 360 * (5 + Math.floor(Math.random() * 3));
+  const start = wheelRot, dur = 5200, t0 = performance.now();
+  let last = -1;
+  (function frame(t) {
+    const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+    wheelRot = start + delta * e;
+    cvs.style.transform = 'rotate(' + wheelRot + 'deg)';
+    const idx = Math.floor((((270 - wheelRot) % 360) + 360) % 360 / seg);
+    if (idx !== last) { if (last !== -1) beep(500 + 300 * (1 - p), 0.03, 0.04); last = idx; }
+    if (p < 1) requestAnimationFrame(frame);
+    else {
+      spinning = false; $('btn-spin').disabled = false;
+      $('spinner-winner-result').innerHTML = '<span class="w">🎉 ' + esc(names[w]) + '</span>';
+      fanfare(); confetti();
+      if ($('sp-remove').checked) { names.splice(w, 1); $('spinner-input-names').value = names.join(', '); setTimeout(drawWheel, 1500); }
+    }
+  })(t0);
+}
+function shuffleArr(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function splitGroups(names, k) { const g = Array.from({ length: k }, () => []); shuffleArr(names).forEach((n, i) => g[i % k].push(n)); return g; }
+function divideGroups() {
+  const names = getNames(), k = parseInt($('group-divide-count').value), box = $('group-results'), btn = $('btn-group');
+  if (names.length < k) { toast('Jumlah nama harus ≥ jumlah kelompok'); return; }
+  btn.disabled = true;
+  const draw = (g, rolling) => g.map((m, i) => '<div class="gbox ' + (rolling ? 'rolling' : '') + '" style="animation-delay:' + (rolling ? 0 : i * 0.18) + 's"><b>' + (rolling ? '<span class="spinning-ic">🎲</span> ' : '👥 ') + 'Kelompok ' + (i + 1) + '</b>' + m.map(n => '<span class="gname">' + esc(n) + '</span>').join('') + '</div>').join('');
+  let ticks = 0;
+  const iv = setInterval(() => {
+    box.innerHTML = draw(splitGroups(names, k), true); beep(400 + Math.random() * 500, 0.03, 0.035);
+    if (++ticks > 24) { clearInterval(iv); box.innerHTML = draw(splitGroups(names, k), false); fanfare(); confetti(); btn.disabled = false; }
+  }, 100);
+}
+
+/* ===================== LOGIN ADMIN ===================== */
+function tryOpenAdmin() {
+  if (isAdmin || (USE_FB && fb && fb.auth.currentUser)) { isAdmin = true; openAdmin(); return; }
+  $('input-admin-user').type = USE_FB ? 'email' : 'text';
+  $('input-admin-user').placeholder = USE_FB ? 'Email admin' : 'Username (admin)';
+  $('input-admin-pass').value = '';
+  $('login-note').textContent = USE_FB ? 'Login memakai akun admin dari Firebase Authentication.' : 'Mode lokal: username admin, password admin.';
+  openModal('modal-login-admin');
+}
+async function verifyAdminLogin() {
+  const u = $('input-admin-user').value.trim(), p = $('input-admin-pass').value;
+  if (USE_FB) {
+    try { await fb.signIn(fb.auth, u, p); isAdmin = true; closeModal('modal-login-admin'); openAdmin(); }
+    catch (e) { console.error(e); toast('Email atau password salah ❌', 'err'); }
+  } else {
+    if (u === 'admin' && p === 'admin') { isAdmin = true; closeModal('modal-login-admin'); openAdmin(); }
+    else toast('Kredensial admin salah ❌', 'err');
+  }
+}
+async function adminLogout() { try { if (USE_FB && fb) await fb.signOut(fb.auth); } catch (e) {} isAdmin = false; closeAdmin(); toast('Kamu sudah keluar dari admin'); }
+function closeAdmin() { $('view-admin').classList.remove('open'); document.body.style.overflow = ''; refreshPublic(); }
+
+/* ===================== DAPUR ADMIN ===================== */
+const ADMIN_MENU = [
+  ['branding', '🎨', 'Branding & Profil Ustaz'], ['jurnal', '📋', 'Jurnal CP/TP (Pertemuan)'], ['pengumuman', '📢', 'Papan Pengumuman'],
+  ['siswa', '👥', 'Data Siswa'], ['nilai', '💯', 'Input Nilai'], ['mufrodat', '📚', 'Bank Mufrodat'], ['sandi', '🔑', 'Kata Sandi Kelas'],
+  ['spinner', '🎰', 'Preset Roda Spinner'], ['bioskop', '🎬', 'Galeri Bioskop Mini'], ['evaluasi', '🤖', 'Evaluasi AI Bulanan'], ['diskusi', '💬', 'Teman Diskusi AI']
+];
+function openAdmin() {
+  document.body.style.overflow = 'hidden';
+  $('view-admin').classList.add('open');
+  $('adm-nav').innerHTML = ADMIN_MENU.map(m => '<button class="nav-btn" data-k="' + m[0] + '" onclick="openAdminTab(\'' + m[0] + '\')"><span>' + m[1] + '</span>' + m[2] + '</button>').join('');
+  openAdminTab(adminState.tab);
+}
+async function openAdminTab(k) {
+  adminState.tab = k;
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  const c = $('adm-content');
+  c.innerHTML = '<p style="color:#94a3b8">Memuat…</p>';
+  try {
+    const modeBanner = USE_FB ? '<div class="adm-ok">☁️ Terhubung ke Firebase — data tersimpan online dan terlihat oleh siswa.</div>'
+      : '<div class="adm-warn">⚠️ <b>Mode lokal:</b> data hanya tersimpan di browser ini, siswa belum bisa melihat perubahan. Sambungkan Firebase dulu (lihat PANDUAN-FIREBASE.md).</div>';
+    c.innerHTML = modeBanner + await PAGES[k]();
+    if (PAGE_INIT[k]) PAGE_INIT[k]();
+    c.scrollTop = 0;
+  } catch (e) { console.error(e); c.innerHTML = '<div class="adm-warn">Gagal memuat halaman: ' + esc(e.code || e.message) + (e.code === 'permission-denied' ? '<br>Pastikan sudah login admin dan rules Firestore sudah dipasang.' : '') + '</div>'; }
+}
+const clsOptions = (sel, all) => (all ? '<option value="all"' + (sel === 'all' ? ' selected' : '') + '>Semua Kelas</option>' : '') + ['7', '8', '9'].map(c => '<option value="' + c + '"' + (String(sel) === c ? ' selected' : '') + '>Ruang Kelas ' + c + '</option>').join('');
+const head = (ico, t, s) => '<h2>' + ico + ' ' + t + '</h2><div class="adm-sub">' + s + '</div>';
+const PAGES = {}, PAGE_INIT = {};
+
+/* ---- Branding ---- */
+PAGES.branding = () => head('🎨', 'Branding & Profil Ustaz', 'Atur judul, profil pengampu, dan deskripsi kelas di halaman utama.')
+  + '<div class="adm-card"><label class="adm-lbl">Judul Website</label><input class="adm-in" id="b-title" value="' + esc(config.title) + '">'
+  + '<label class="adm-lbl">Tagline</label><input class="adm-in" id="b-tag" value="' + esc(config.tagline) + '">'
+  + '<label class="adm-lbl">Nama Pengampu</label><input class="adm-in" id="b-name" value="' + esc(config.pengampu) + '">'
+  + '<label class="adm-lbl">Jabatan / Keterangan Pengampu</label><input class="adm-in" id="b-role" value="' + esc(config.role) + '">'
+  + '<label class="adm-lbl">Link Foto Pengampu (opsional, alamat gambar https://…)</label><input class="adm-in" id="b-photo" value="' + esc(config.photo) + '" placeholder="Kosongkan untuk memakai inisial nama">'
+  + '<label class="adm-lbl">Tentang Website (muncul di pop-up logo)</label><textarea class="adm-in" id="b-about" rows="3">' + esc(config.about) + '</textarea></div>'
+  + '<div class="adm-card"><h4>Deskripsi Kartu Ruang Kelas</h4>' + ['7', '8', '9'].map(c => '<label class="adm-lbl">Kelas ' + c + '</label><input class="adm-in" id="b-d' + c + '" value="' + esc(config.classDesc[c]) + '">').join('') + '</div>'
+  + '<button class="adm-btn" onclick="saveBranding()">💾 Simpan Branding</button>';
+function saveBranding() {
+  config.title = $('b-title').value.trim() || DEFAULT_CONFIG.title; config.tagline = $('b-tag').value.trim();
+  config.pengampu = $('b-name').value.trim() || DEFAULT_CONFIG.pengampu; config.role = $('b-role').value.trim();
+  config.photo = $('b-photo').value.trim(); config.about = $('b-about').value.trim();
+  ['7', '8', '9'].forEach(c => config.classDesc[c] = $('b-d' + c).value.trim());
+  persist('Branding tersimpan ✅');
+}
+
+/* ---- Pengumuman ---- */
+PAGES.pengumuman = () => head('📢', 'Papan Pengumuman', 'Pengumuman tampil di bagian atas tiap ruang kelas.')
+  + '<div class="adm-card">' + ['7', '8', '9'].map(c => '<label class="adm-lbl">Pengumuman Kelas ' + c + '</label><textarea class="adm-in" id="a-' + c + '" rows="2">' + esc(config.announcements[c]) + '</textarea>').join('') + '</div>'
+  + '<button class="adm-btn" onclick="saveAnn()">💾 Simpan Pengumuman</button>';
+function saveAnn() { ['7', '8', '9'].forEach(c => config.announcements[c] = $('a-' + c).value.trim()); persist('Pengumuman tersimpan ✅'); }
+
+/* ---- Kata sandi kelas ---- */
+PAGES.sandi = () => head('🔑', 'Kata Sandi Kelas', 'Tiap kelas punya kata sandi sendiri. Siswa memasukkannya di pop-up sebelum masuk kelas.')
+  + '<div class="adm-card">' + ['7', '8', '9'].map(c => '<label class="adm-lbl">Kata sandi Kelas ' + c + '</label><input class="adm-in" id="pw-' + c + '" value="' + esc(config.classPass[c]) + '">').join('')
+  + '<label class="adm-lbl">Petunjuk (hint) di pop-up</label><input class="adm-in" id="pw-hint" value="' + esc(config.passHint) + '"></div>'
+  + '<button class="adm-btn" onclick="savePw()">💾 Simpan Kata Sandi</button>';
+function savePw() {
+  for (const c of ['7', '8', '9']) { const v = $('pw-' + c).value.trim(); if (!v) { toast('Kata sandi Kelas ' + c + ' tidak boleh kosong', 'err'); return; } config.classPass[c] = v; }
+  config.passHint = $('pw-hint').value.trim(); persist('Kata sandi tersimpan ✅');
+}
+
+/* ---- Jurnal CP/TP (bab & pertemuan) ---- */
+PAGES.jurnal = () => {
+  const c = adminState.jCls, babs = config.bab[c] = config.bab[c] || [];
+  let h = head('📋', 'Jurnal CP/TP (Pertemuan)', 'Susun bab, lalu isi tiap pertemuan: topik, alur pembelajaran, slide, LKPD, dan game.')
+    + '<div class="adm-card" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><select class="adm-in" style="width:auto" onchange="adminState.jCls=this.value;openAdminTab(\'jurnal\')">' + clsOptions(c) + '</select><button class="adm-btn green" onclick="addBab()">＋ Tambah Bab</button><button class="adm-btn" onclick="saveJurnal()">💾 Simpan Semua</button></div>';
+  if (!babs.length) h += '<div class="adm-card" style="text-align:center;color:#94a3b8">Belum ada bab. Klik “＋ Tambah Bab”.</div>';
+  babs.forEach((b, bi) => {
+    h += '<div class="bab-box"><div class="r3"><div><label class="adm-lbl">No. Bab</label><input class="adm-in" value="' + esc(b.no) + '" oninput="jSet(' + bi + ',-1,\'no\',this.value)"></div><div style="grid-column:span 2"><label class="adm-lbl">Judul Bab</label><input class="adm-in" value="' + esc(b.judul) + '" oninput="jSet(' + bi + ',-1,\'judul\',this.value)" placeholder="Contoh: Perkenalan (التَّعَارُفُ)"></div></div>'
+      + '<label class="adm-lbl">Ringkasan Bab</label><textarea class="adm-in" rows="2" oninput="jSet(' + bi + ',-1,\'desc\',this.value)">' + esc(b.desc) + '</textarea>'
+      + '<label class="adm-lbl">Tujuan Pembelajaran (TP)</label><textarea class="adm-in" rows="2" oninput="jSet(' + bi + ',-1,\'tp\',this.value)">' + esc(b.tp) + '</textarea>';
+    (b.pertemuan = b.pertemuan || []).forEach((m, mi) => {
+      h += '<div class="mtg-box"><div style="display:flex;justify-content:space-between;align-items:center"><h5>📌 Pertemuan ke-' + esc(m.no) + '</h5><button class="lnk" onclick="delMtg(' + bi + ',' + mi + ')">Hapus pertemuan</button></div>'
+        + '<div class="r3"><div><label class="adm-lbl">Pertemuan ke-</label><input class="adm-in" value="' + esc(m.no) + '" oninput="jSet(' + bi + ',' + mi + ',\'no\',this.value)"></div><div style="grid-column:span 2"><label class="adm-lbl">Judul / Topik</label><input class="adm-in" value="' + esc(m.judul) + '" oninput="jSet(' + bi + ',' + mi + ',\'judul\',this.value)"></div></div>'
+        + '<label class="adm-lbl">Mempelajari apa?</label><textarea class="adm-in" rows="2" oninput="jSet(' + bi + ',' + mi + ',\'isi\',this.value)">' + esc(m.isi) + '</textarea>'
+        + '<label class="adm-lbl">Alur pembelajaran (satu langkah per baris)</label><textarea class="adm-in" rows="5" oninput="jSet(' + bi + ',' + mi + ',\'alur\',this.value)">' + esc(m.alur) + '</textarea>'
+        + '<div class="r3" style="margin-top:12px"><div><label class="adm-lbl">Link Slide Canva / PPT</label><input class="adm-in" value="' + esc(m.slide) + '" placeholder="https://…" oninput="jSet(' + bi + ',' + mi + ',\'slide\',this.value)"></div>'
+        + '<div><label class="adm-lbl">Link LKPD (jika ada)</label><input class="adm-in" value="' + esc(m.lkpd) + '" placeholder="https://…" oninput="jSet(' + bi + ',' + mi + ',\'lkpd\',this.value)"></div>'
+        + '<div><label class="adm-lbl">Link Game (jika ada)</label><input class="adm-in" value="' + esc(m.game) + '" placeholder="https://…" oninput="jSet(' + bi + ',' + mi + ',\'game\',this.value)"></div>'
+        + '<div><label class="adm-lbl">Nama/jenis game (opsional)</label><input class="adm-in" value="' + esc(m.gameNote) + '" placeholder="Contoh: Kuis Wayground" oninput="jSet(' + bi + ',' + mi + ',\'gameNote\',this.value)"></div></div></div>';
+    });
+    h += '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap"><button class="adm-btn green sm" onclick="addMtg(' + bi + ')">＋ Tambah Pertemuan</button><button class="adm-btn red sm" onclick="delBab(' + bi + ')">Hapus Bab ini</button></div></div>';
+  });
+  return h;
+};
+function jSet(bi, mi, key, val) { const b = config.bab[adminState.jCls][bi]; if (mi < 0) b[key] = val; else b.pertemuan[mi][key] = val; }
+function addBab() { const a = config.bab[adminState.jCls]; const nx = a.length ? Math.max(...a.map(b => num(b.no))) + 1 : 1; a.push({ no: String(nx), judul: '', desc: '', tp: '', pertemuan: [] }); openAdminTab('jurnal'); }
+function delBab(bi) { if (confirm('Hapus bab ini beserta semua pertemuannya?')) { config.bab[adminState.jCls].splice(bi, 1); openAdminTab('jurnal'); } }
+function addMtg(bi) { const b = config.bab[adminState.jCls][bi]; const nx = b.pertemuan.length ? Math.max(...b.pertemuan.map(m => num(m.no))) + 1 : 1; b.pertemuan.push({ no: String(nx), judul: '', isi: '', alur: '', slide: '', lkpd: '', game: '', gameNote: '' }); openAdminTab('jurnal'); }
+function delMtg(bi, mi) { if (confirm('Hapus pertemuan ini?')) { config.bab[adminState.jCls][bi].pertemuan.splice(mi, 1); openAdminTab('jurnal'); } }
+async function saveJurnal() {
+  ['7', '8', '9'].forEach(c => { (config.bab[c] || []).sort((a, b) => num(a.no) - num(b.no)).forEach(b => (b.pertemuan || []).sort((x, y) => num(x.no) - num(y.no))); });
+  if (await persist('Jurnal tersimpan ✅')) openAdminTab('jurnal');
+}
+
+/* ---- Data Siswa ---- */
+async function loadAdminStudents() { adminStudents = await DB.listStudents(); }
+PAGES.siswa = async () => {
+  await loadAdminStudents();
+  return head('👥', 'Master Data Siswa', 'Di sini hanya NISN, nama, dan kelas. Nilai diinput di menu <b>Input Nilai</b>.')
+    + '<div class="adm-card"><h4>Tambah / Edit Data Siswa:</h4><div class="r3"><input class="adm-in" id="s-nisn" placeholder="NISN"><input class="adm-in" id="s-name" placeholder="Nama siswa"><select class="adm-in" id="s-cls">' + clsOptions('7') + '</select></div>'
+    + '<button class="adm-btn green" id="s-btn" onclick="saveStudentForm()">+ Tambah Data Siswa</button> <button class="adm-btn ghost" onclick="clearStudentForm()">Kosongkan</button></div>'
+    + '<div class="adm-card"><h4>Tempel banyak siswa sekaligus</h4><p style="margin:0 0 10px;color:#94a3b8;font-size:13px">Satu siswa per baris, format: <b>NISN, Nama</b></p><div class="r3"><select class="adm-in" id="bulk-cls">' + clsOptions('7') + '</select></div><textarea class="adm-in" id="bulk-txt" rows="4" placeholder="12345, Fulan Ahmad&#10;12346, Aisyah Humaira"></textarea><div style="margin-top:12px"><button class="adm-btn" onclick="bulkStudents()">📥 Tambahkan Semua</button></div></div>'
+    + '<div class="adm-card" style="padding:0;overflow:hidden"><div style="padding:16px;display:flex;gap:10px;flex-wrap:wrap"><select class="adm-in" style="width:auto" id="s-filter" onchange="adminState.sFilter=this.value;renderStudentTable()">' + clsOptions(adminState.sFilter, true) + '</select><input class="adm-in" style="flex:1;min-width:180px" id="s-search" placeholder="🔍 Cari nama / NISN…" oninput="renderStudentTable()"></div><div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>NISN</th><th>Nama Siswa</th><th>Kelas</th><th>Aksi</th></tr></thead><tbody id="s-tbody"></tbody></table></div></div>';
+};
+PAGE_INIT.siswa = () => renderStudentTable();
+function renderStudentTable() {
+  const q = ($('s-search').value || '').toLowerCase(), f = adminState.sFilter;
+  const rows = Object.values(adminStudents).filter(s => (f === 'all' || String(s.cls) === f) && (!q || s.name.toLowerCase().includes(q) || s.nisn.includes(q))).sort((a, b) => String(a.cls).localeCompare(String(b.cls)) || a.name.localeCompare(b.name));
+  $('s-tbody').innerHTML = rows.length ? rows.map(s => '<tr><td class="k">' + esc(s.nisn) + '</td><td>' + esc(s.name) + '</td><td>Kelas ' + esc(s.cls) + '</td><td><button class="lnk y" onclick="editStudent(\'' + s.nisn + '\')">Edit</button> &nbsp; <button class="lnk" onclick="delStudent(\'' + s.nisn + '\')">Hapus</button></td></tr>').join('') : '<tr><td colspan="4" style="text-align:center;color:#94a3b8;padding:24px">Belum ada data siswa.</td></tr>';
+}
+function clearStudentForm() { $('s-nisn').value = ''; $('s-name').value = ''; $('s-nisn').readOnly = false; $('s-btn').textContent = '+ Tambah Data Siswa'; }
+function editStudent(n) { const s = adminStudents[n]; $('s-nisn').value = s.nisn; $('s-nisn').readOnly = true; $('s-name').value = s.name; $('s-cls').value = s.cls; $('s-btn').textContent = '💾 Simpan Perubahan'; $('s-name').focus(); }
+async function saveStudentForm() {
+  const nisn = sanitizeNisn($('s-nisn').value), name = $('s-name').value.trim(), cls = $('s-cls').value;
+  if (!nisn || !name) { toast('Lengkapi NISN dan nama dulu', 'err'); return; }
+  const old = adminStudents[nisn], st = { nisn, name, cls, nilai: old ? (old.nilai || []) : [] };
+  try { await DB.saveStudent(st); adminStudents[nisn] = st; toast(old ? 'Data siswa diperbarui ✅' : 'Siswa ditambahkan ✅', 'ok'); clearStudentForm(); renderStudentTable(); }
+  catch (e) { console.error(e); toast('Gagal menyimpan: ' + (e.code || e.message), 'err'); }
+}
+async function bulkStudents() {
+  const cls = $('bulk-cls').value, lines = $('bulk-txt').value.split('\n').map(l => l.trim()).filter(Boolean);
+  let ok = 0;
+  try {
+    for (const l of lines) {
+      const i = l.search(/[,;\t]/); if (i < 0) continue;
+      const nisn = sanitizeNisn(l.slice(0, i)), name = l.slice(i + 1).trim(); if (!nisn || !name) continue;
+      const old = adminStudents[nisn], st = { nisn, name, cls, nilai: old ? (old.nilai || []) : [] };
+      await DB.saveStudent(st); adminStudents[nisn] = st; ok++;
+    }
+    toast(ok + ' siswa berhasil ditambahkan ✅', ok ? 'ok' : ''); $('bulk-txt').value = ''; renderStudentTable();
+  } catch (e) { console.error(e); toast('Gagal: ' + (e.code || e.message), 'err'); }
+}
+async function delStudent(n) {
+  if (!confirm('Hapus siswa ini beserta seluruh nilainya?')) return;
+  try { await DB.deleteStudent(n); delete adminStudents[n]; if (adminState.nSel === n) adminState.nSel = null; renderStudentTable(); toast('Siswa dihapus'); }
+  catch (e) { toast('Gagal menghapus: ' + (e.code || e.message), 'err'); }
+}
+
+/* ---- Input Nilai ---- */
+PAGES.nilai = async () => {
+  await loadAdminStudents();
+  return head('💯', 'Input Nilai Siswa', 'Pilih kelas, cari siswa lewat nama atau NISN, lalu masukkan nilai beserta keterangannya.')
+    + '<div class="adm-card"><div class="r3"><div><label class="adm-lbl">Kelas</label><select class="adm-in" id="n-cls" onchange="adminState.nCls=this.value;adminState.nSel=null;renderNilai()">' + clsOptions(adminState.nCls) + '</select></div><div style="grid-column:span 2"><label class="adm-lbl">Cari siswa (nama atau NISN)</label><input class="adm-in" id="n-search" placeholder="Ketik nama atau NISN…" oninput="renderNilai()"></div></div><div class="adm-pick" id="n-results"></div></div>'
+    + '<div id="n-detail"></div>';
+};
+PAGE_INIT.nilai = () => renderNilai();
+function renderNilai() {
+  const q = ($('n-search').value || '').toLowerCase(), c = adminState.nCls;
+  const list = Object.values(adminStudents).filter(s => String(s.cls) === c && (!q || s.name.toLowerCase().includes(q) || s.nisn.includes(q))).sort((a, b) => a.name.localeCompare(b.name)).slice(0, 60);
+  $('n-results').innerHTML = list.length ? list.map(s => '<button class="' + (adminState.nSel === s.nisn ? 'on' : '') + '" onclick="selNilai(\'' + s.nisn + '\')">' + esc(s.name) + '<small>' + esc(s.nisn) + '</small></button>').join('') : '<span style="color:#94a3b8;font-size:13px">Tidak ada siswa. Tambahkan dulu di menu Data Siswa.</span>';
+  renderNilaiDetail();
+}
+function selNilai(n) { adminState.nSel = n; renderNilai(); setTimeout(() => { const d = $('n-detail'); if (d) d.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }
+function renderNilaiDetail() {
+  const d = $('n-detail'), st = adminStudents[adminState.nSel];
+  if (!st) { d.innerHTML = ''; return; }
+  const items = st.nilai || [], avg = items.length ? items.reduce((s, x) => s + num(x.val), 0) / items.length : 0;
+  d.innerHTML = '<div class="adm-card"><h4>📝 ' + esc(st.name) + ' <span style="color:#94a3b8;font-weight:600">· NISN ' + esc(st.nisn) + ' · Kelas ' + esc(st.cls) + '</span></h4>'
+    + '<div class="r3"><div><label class="adm-lbl">Nilai (0–100)</label><input type="number" min="0" max="100" class="adm-in" id="v-val" placeholder="85"></div><div style="grid-column:span 2"><label class="adm-lbl">Keterangan</label><input class="adm-in" id="v-ket" placeholder="Contoh: Tugas mufrodat Bab 1"></div><div><label class="adm-lbl">Tanggal</label><input type="date" class="adm-in" id="v-tgl" value="' + today() + '"></div></div>'
+    + '<button class="adm-btn green" onclick="addNilai()">+ Simpan Nilai</button></div>'
+    + '<div class="adm-card"><h4>Riwayat Nilai ' + (items.length ? '· rata-rata ' + avg.toFixed(1) : '') + '</h4>'
+    + (items.length ? '<table class="adm-tbl"><thead><tr><th>Tanggal</th><th>Keterangan</th><th>Nilai</th><th>Aksi</th></tr></thead><tbody>' + items.map((x, i) => '<tr><td>' + esc(x.tgl || '-') + '</td><td>' + esc(x.ket) + '</td><td class="k">' + esc(x.val) + '</td><td><button class="lnk" onclick="delNilai(' + i + ')">Hapus</button></td></tr>').reverse().join('') + '</tbody></table>' : '<span style="color:#94a3b8;font-size:13px">Belum ada nilai.</span>') + '</div>';
+}
+async function addNilai() {
+  const st = adminStudents[adminState.nSel], val = parseFloat($('v-val').value), ket = $('v-ket').value.trim();
+  if (isNaN(val) || val < 0 || val > 100) { toast('Nilai harus angka 0–100', 'err'); return; }
+  if (!ket) { toast('Isi keterangan nilainya dulu ya', 'err'); return; }
+  st.nilai = st.nilai || []; st.nilai.push({ ket, val, tgl: $('v-tgl').value || today() });
+  try { await DB.saveStudent(st); toast('Nilai tersimpan ✅', 'ok'); renderNilaiDetail(); }
+  catch (e) { st.nilai.pop(); toast('Gagal menyimpan: ' + (e.code || e.message), 'err'); }
+}
+async function delNilai(i) {
+  const st = adminStudents[adminState.nSel]; if (!confirm('Hapus nilai ini?')) return;
+  const removed = st.nilai.splice(i, 1);
+  try { await DB.saveStudent(st); renderNilaiDetail(); toast('Nilai dihapus'); }
+  catch (e) { st.nilai.splice(i, 0, removed[0]); toast('Gagal: ' + (e.code || e.message), 'err'); }
+}
+
+/* ---- Bank Mufrodat ---- */
+PAGES.mufrodat = () => {
+  const c = adminState.mCls;
+  return head('📚', 'Bank Mufrodat', 'Tambah kosakata per kelas dan bab. Nomor bab bebas, bisa sampai berapa pun.')
+    + '<div class="adm-card"><h4>Tambah satu kata</h4><div class="r3"><select class="adm-in" id="m-cls">' + clsOptions(c) + '</select><input class="adm-in" id="m-bab" type="number" min="1" placeholder="Bab ke-" value="1"><input class="adm-in" id="m-ar" dir="rtl" placeholder="الكلمة" style="font-family:Amiri;font-size:20px"><input class="adm-in" id="m-id" placeholder="Arti Indonesia"></div><button class="adm-btn green" onclick="addMufrodat()">+ Tambah Kata</button></div>'
+    + '<div class="adm-card"><h4>Tempel banyak kata sekaligus</h4><p style="margin:0 0 10px;color:#94a3b8;font-size:13px">Satu kata per baris, format: <b>العربية = arti</b> (kelas & bab mengikuti isian di atas)</p><textarea class="adm-in" id="m-bulk" rows="4" dir="auto" placeholder="مَدْرَسَةٌ = Sekolah&#10;قَلَمٌ = Pulpen"></textarea><div style="margin-top:12px"><button class="adm-btn" onclick="bulkMufrodat()">📥 Tambahkan Semua</button></div></div>'
+    + '<div class="adm-card" style="padding:0;overflow:hidden"><div style="padding:16px;display:flex;gap:10px;flex-wrap:wrap"><select class="adm-in" style="width:auto" onchange="adminState.mCls=this.value;adminState.mBab=\'all\';openAdminTab(\'mufrodat\')">' + clsOptions(c) + '</select><select class="adm-in" style="width:auto" onchange="adminState.mBab=this.value;openAdminTab(\'mufrodat\')"><option value="all">Semua Bab</option>' + babNumsFor(c).map(n => '<option value="' + esc(n) + '"' + (adminState.mBab === n ? ' selected' : '') + '>Bab ' + esc(n) + '</option>').join('') + '</select></div><div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Bab</th><th>Arab</th><th>Arti</th><th>Aksi</th></tr></thead><tbody>'
+    + (config.mufrodat.map((m, i) => ({ m, i })).filter(o => o.m.cls === c && (adminState.mBab === 'all' || String(o.m.bab) === adminState.mBab)).map(o => '<tr><td class="k">' + esc(o.m.bab) + '</td><td style="font-family:Amiri;font-size:20px" dir="rtl">' + esc(o.m.arab) + '</td><td>' + esc(o.m.text) + '</td><td><button class="lnk" onclick="delMufrodat(' + o.i + ')">Hapus</button></td></tr>').join('') || '<tr><td colspan="4" style="text-align:center;color:#94a3b8;padding:24px">Belum ada kata.</td></tr>')
+    + '</tbody></table></div></div>';
+};
+function addMufrodat() {
+  const arb = $('m-ar').value.trim(), id = $('m-id').value.trim(), bab = String(parseInt($('m-bab').value) || 1), cls = $('m-cls').value;
+  if (!arb || !id) { toast('Isi kata Arab dan artinya', 'err'); return; }
+  config.mufrodat.push({ arab: arb, text: id, cls, bab }); adminState.mCls = cls;
+  persist('Kata ditambahkan ✅').then(() => openAdminTab('mufrodat'));
+}
+function bulkMufrodat() {
+  const cls = $('m-cls').value, bab = String(parseInt($('m-bab').value) || 1); let n = 0;
+  $('m-bulk').value.split('\n').forEach(l => { const i = l.indexOf('='); if (i < 0) return; const a = l.slice(0, i).trim(), t = l.slice(i + 1).trim(); if (a && t) { config.mufrodat.push({ arab: a, text: t, cls, bab }); n++; } });
+  if (!n) { toast('Format belum sesuai: العربية = arti', 'err'); return; }
+  adminState.mCls = cls; persist(n + ' kata ditambahkan ✅').then(() => openAdminTab('mufrodat'));
+}
+function delMufrodat(i) { config.mufrodat.splice(i, 1); persist('Kata dihapus').then(() => openAdminTab('mufrodat')); }
+
+/* ---- Preset Roda ---- */
+PAGES.spinner = () => head('🎰', 'Preset Roda Acak Per Kelas', 'Masukkan daftar nama siswa per kelas (pisahkan dengan koma).')
+  + ['7', '8', '9'].map(c => '<label class="adm-lbl">Daftar Nama Siswa Kelas ' + c + ':</label><textarea class="adm-in" id="sp-' + c + '" rows="3">' + esc(config.spinner[c]) + '</textarea>').join('')
+  + '<div style="margin-top:22px"><button class="adm-btn" onclick="saveSpinnerPreset()">💾 Simpan Preset Spinner</button></div>';
+function saveSpinnerPreset() { ['7', '8', '9'].forEach(c => config.spinner[c] = $('sp-' + c).value.trim()); persist('Preset roda tersimpan ✅'); }
+
+/* ---- Bioskop ---- */
+PAGES.bioskop = () => head('🎬', 'Galeri Bioskop Mini', 'Tempel link video YouTube, otomatis tampil sebagai pemutar di halaman Bioskop Mini.')
+  + '<div class="adm-card"><h4>Tambah video</h4><div class="r3"><input class="adm-in" id="vd-title" placeholder="Judul video"><input class="adm-in" id="vd-url" placeholder="Link YouTube"></div><button class="adm-btn green" onclick="addVideo()">+ Tambah Video</button></div>'
+  + '<div class="adm-card" style="padding:0;overflow:hidden"><table class="adm-tbl"><thead><tr><th>Judul</th><th>Link</th><th>Aksi</th></tr></thead><tbody>' + (config.videos.map((v, i) => '<tr><td>' + esc(v.title) + '</td><td style="color:#94a3b8;word-break:break-all">' + esc(v.url) + '</td><td><button class="lnk" onclick="delVideo(' + i + ')">Hapus</button></td></tr>').join('') || '<tr><td colspan="3" style="text-align:center;color:#94a3b8;padding:24px">Belum ada video.</td></tr>') + '</tbody></table></div>';
+function addVideo() {
+  const t = $('vd-title').value.trim(), u = $('vd-url').value.trim();
+  if (!t || !u) { toast('Isi judul dan link video', 'err'); return; }
+  if (!ytId(u)) { toast('Link belum dikenali sebagai YouTube — video akan tampil sebagai tombol', ''); }
+  config.videos.push({ title: t, url: u }); persist('Video ditambahkan ✅').then(() => openAdminTab('bioskop'));
+}
+function delVideo(i) { config.videos.splice(i, 1); persist('Video dihapus').then(() => openAdminTab('bioskop')); }
+
+/* ---- Evaluasi (ringkasan otomatis, AI menyusul) ---- */
+PAGES.evaluasi = async () => {
+  await loadAdminStudents();
+  return head('🤖', 'Evaluasi AI Bulanan', 'Ringkasan nilai otomatis per kelas. Analisis AI akan disambungkan di tahap berikutnya.')
+    + '<div class="adm-card"><div class="r3"><div><label class="adm-lbl">Kelas</label><select class="adm-in" id="e-cls" onchange="renderEvaluasi()">' + clsOptions('7') + '</select></div><div><label class="adm-lbl">Bulan</label><input type="month" class="adm-in" id="e-bln" value="' + today().slice(0, 7) + '" onchange="renderEvaluasi()"></div><div><label class="adm-lbl">KKM</label><input type="number" class="adm-in" id="e-kkm" value="75" oninput="renderEvaluasi()"></div></div></div><div id="e-out"></div>'
+    + '<div class="adm-card"><h4>✨ Analisis AI</h4><p style="margin:0;color:#94a3b8;font-size:13.5px;line-height:1.6">Fitur narasi evaluasi otomatis oleh AI (analisis kemajuan, saran remedial/pengayaan) akan ditambahkan setelah website utama selesai.</p></div>';
+};
+PAGE_INIT.evaluasi = () => renderEvaluasi();
+function renderEvaluasi() {
+  const c = $('e-cls').value, bln = $('e-bln').value, kkm = num($('e-kkm').value);
+  const rows = Object.values(adminStudents).filter(s => String(s.cls) === c).map(s => {
+    const it = (s.nilai || []).filter(x => !bln || String(x.tgl || '').startsWith(bln)); const avg = it.length ? it.reduce((a, x) => a + num(x.val), 0) / it.length : null;
+    return { name: s.name, n: it.length, avg };
+  }).sort((a, b) => (b.avg === null) - (a.avg === null) || (b.avg || 0) - (a.avg || 0));
+  const scored = rows.filter(r => r.avg !== null), below = scored.filter(r => r.avg < kkm);
+  const cavg = scored.length ? scored.reduce((a, r) => a + r.avg, 0) / scored.length : 0;
+  $('e-out').innerHTML = '<div class="kpi"><div><b>' + rows.length + '</b><span>Siswa</span></div><div><b>' + (scored.length ? cavg.toFixed(1) : '-') + '</b><span>Rata-rata kelas</span></div><div><b>' + (scored.length ? Math.max(...scored.map(r => r.avg)).toFixed(0) : '-') + '</b><span>Tertinggi</span></div><div><b>' + below.length + '</b><span>Di bawah KKM</span></div></div>'
+    + '<div class="adm-card" style="padding:0;overflow:hidden"><table class="adm-tbl"><thead><tr><th>Nama</th><th>Jml nilai</th><th>Rata-rata</th><th>Status</th></tr></thead><tbody>' + (rows.map(r => '<tr><td>' + esc(r.name) + '</td><td>' + r.n + '</td><td class="k">' + (r.avg === null ? '-' : r.avg.toFixed(1)) + '</td><td>' + (r.avg === null ? '<span style="color:#94a3b8">Belum ada nilai</span>' : r.avg >= kkm ? '<span style="color:#86efac">Tuntas</span>' : '<span style="color:#fda4af">Perlu remedial</span>') + '</td></tr>').join('') || '<tr><td colspan="4" style="text-align:center;color:#94a3b8;padding:24px">Belum ada data siswa.</td></tr>') + '</tbody></table></div>';
+}
+
+/* ---- Teman Diskusi (placeholder) ---- */
+PAGES.diskusi = () => head('💬', 'Teman Diskusi AI', 'Asisten untuk berdiskusi ide pembelajaran. Tampilan sudah siap, koneksi AI menyusul.')
+  + '<div class="adm-chat"><div class="bub a">Assalamu\'alaikum, Ustadz! Mau diskusi materi apa hari ini? 😊</div><div class="bub u">Bantu saya susun alur pembelajaran Bab 1 kelas 7.</div><div class="bub a" style="opacity:.7">… (fitur ini akan aktif setelah AI disambungkan)</div></div>'
+  + '<div style="display:flex;gap:10px;margin-top:14px"><input class="adm-in" disabled placeholder="Segera hadir…"><button class="adm-btn" disabled style="opacity:.5;cursor:not-allowed">Kirim</button></div>';
+
+/* ---- Reset ---- */
+async function resetConfig() {
+  if (!confirm('Kembalikan semua pengaturan, bab, mufrodat, dan pengumuman ke bawaan?\n(Data siswa & nilai TIDAK ikut dihapus.)')) return;
+  config = clone(DEFAULT_CONFIG);
+  if (await persist('Dikembalikan ke setelan awal ✅')) openAdminTab(adminState.tab);
+}
+
+/* ===================== MULAI ===================== */
+(async function init() {
+  applyPrefs(); applyBranding(); setHijri(); updateClock(); setInterval(updateClock, 1000);
+  setInterval(() => { if (!document.hidden && !$('view-dashboard').classList.contains('hidden')) nextMahfuzhat(); }, 14000);
+  drawWheel();
+  try {
+    if (USE_FB) await initFirebase();
+    config = mergeConfig(await DB.loadConfig());
+  } catch (e) {
+    console.error(e);
+    toast('Belum bisa memuat data online, memakai data bawaan.', 'err');
+    config = mergeConfig(null);
+  }
+  applyBranding();
+  if ('speechSynthesis' in window) speechSynthesis.getVoices();
+})();
+</script>
+</body>
+</html>
